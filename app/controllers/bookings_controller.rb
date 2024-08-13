@@ -3,9 +3,9 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @experience = Experience.find(params[:id])
     @booking = Booking.new()
     @user = current_user
-    @experience = Experience.find(params[:id])
     @booking.user = @user
     @booking.experience = @experience
     if @booking.save
