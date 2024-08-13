@@ -6,16 +6,15 @@ class BookingsController < ApplicationController
 
   def create
     # booking needs experience, user, status, start date
-    raise
     @booking = Booking.new(booking_params)
+    @booking.date = Date.parse(params[:booking][:date])
     @experience = Experience.find(params[:experience_id])
-    @booking.status = "pending"
     @booking.user = current_user
     @booking.experience = @experience
-
     if @booking.save
-      redirect_to experience_path(@experience)
+      redirect_to bookings_path
     else
+      raise
       render "#", status: :unprocessable_entity
     end
   end
