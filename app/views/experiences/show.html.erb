@@ -39,6 +39,14 @@
     <div class="booking-form" style="flex: 4; position: sticky; top: 0;">
       <%# This form should float on the right side of the screen %>
       <%# This is where the booking form can go @eri %>
+      <h3>Pick your Dates</h3>
+      <%= simple_form_for [@experience, @booking] do |f| %>
+        <%= f.input :date %>
+        <%= f.submit %>
+      <% end %>
+      <h4>Price Breakdown</h4>
+      <span>Price</span>
+      <span>$100</span>
     </div>
   </div>
 </div>

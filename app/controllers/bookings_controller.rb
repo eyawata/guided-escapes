@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
 
   def create
     # booking needs experience, user, status, start date
+    raise
     @booking = Booking.new(booking_params)
     @experience = Experience.find(params[:experience_id])
     @booking.status = "pending"
