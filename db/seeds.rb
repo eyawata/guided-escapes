@@ -27,26 +27,26 @@ photo_url = {
 }
 
 # Event details
-events = [
-  { location: "Tokyo", event_name: "Tokyo Sakura Festival", content: "Enjoy the cherry blossom season with a guided tour through Ueno Park, including traditional tea ceremonies and local street food." },
-  { location: "Kyoto", event_name: "Gion Matsuri", content: "Experience the vibrant Gion Matsuri, one of Japan's most famous festivals, with a guided walk through the historical streets of Kyoto." },
-  { location: "Osaka", event_name: "Osaka Night Food Tour", content: "Explore Osaka's renowned food scene with a night tour that takes you through Dotonbori, sampling Takoyaki, Okonomiyaki, and other local delights." },
-  { location: "Hiroshima", event_name: "Hiroshima Peace Memorial Tour", content: "Join a guided tour of the Hiroshima Peace Memorial Park and Museum, learning about the history and impact of the atomic bombing." },
-  { location: "Nara", event_name: "Nara Deer Park and Temple Tour", content: "Spend a day visiting Nara's famous Todai-ji Temple and feeding the friendly deer in Nara Park, with insights into the city's history." },
-  { location: "Sapporo", event_name: "Sapporo Snow Festival", content: "Witness the incredible snow and ice sculptures at the Sapporo Snow Festival, with a guided tour that includes visits to local hot springs." },
-  { location: "Okinawa", event_name: "Okinawa Cultural and Historical Tour", content: "Discover Okinawa's unique culture and history with visits to Shurijo Castle, local markets, and traditional Ryukyu dance performances." },
-  { location: "Nagano", event_name: "Nagano Zenko-ji Temple Tour", content: "Explore the ancient Zenko-ji Temple in Nagano, including a meditation session and a walk through the temple grounds." },
-  { location: "Nikko", event_name: "Nikko World Heritage Tour", content: "Visit the UNESCO World Heritage sites in Nikko, including Toshogu Shrine, with a guided tour through the beautiful mountainous region." },
-  { location: "Fukuoka", event_name: "Fukuoka Hakata Gion Yamakasa", content: "Experience the excitement of the Hakata Gion Yamakasa festival, with a guided tour of Fukuoka's historical sites and local cuisine." }
+experiences = [
+  { location: "Tokyo", title: "Tokyo Sakura Festival", content: "Enjoy the cherry blossom season with a guided tour through Ueno Park, including traditional tea ceremonies and local street food." },
+  { location: "Kyoto", title: "Gion Matsuri", content: "Experience the vibrant Gion Matsuri, one of Japan's most famous festivals, with a guided walk through the historical streets of Kyoto." },
+  { location: "Osaka", title: "Osaka Night Food Tour", content: "Explore Osaka's renowned food scene with a night tour that takes you through Dotonbori, sampling Takoyaki, Okonomiyaki, and other local delights." },
+  { location: "Hiroshima", title: "Hiroshima Peace Memorial Tour", content: "Join a guided tour of the Hiroshima Peace Memorial Park and Museum, learning about the history and impact of the atomic bombing." },
+  { location: "Nara", title: "Nara Deer Park and Temple Tour", content: "Spend a day visiting Nara's famous Todai-ji Temple and feeding the friendly deer in Nara Park, with insights into the city's history." },
+  { location: "Sapporo", title: "Sapporo Snow Festival", content: "Witness the incredible snow and ice sculptures at the Sapporo Snow Festival, with a guided tour that includes visits to local hot springs." },
+  { location: "Okinawa", title: "Okinawa Cultural and Historical Tour", content: "Discover Okinawa's unique culture and history with visits to Shurijo Castle, local markets, and traditional Ryukyu dance performances." },
+  { location: "Nagano", title: "Nagano Zenko-ji Temple Tour", content: "Explore the ancient Zenko-ji Temple in Nagano, including a meditation session and a walk through the temple grounds." },
+  { location: "Nikko", title: "Nikko World Heritage Tour", content: "Visit the UNESCO World Heritage sites in Nikko, including Toshogu Shrine, with a guided tour through the beautiful mountainous region." },
+  { location: "Fukuoka", title: "Fukuoka Hakata Gion Yamakasa", content: "Experience the excitement of the Hakata Gion Yamakasa festival, with a guided tour of Fukuoka's historical sites and local cuisine." }
 ]
 
 # Create events
-events.each do |event|
-  Event.create!(
-    location: event[:location],
-    event_name: event[:event_name],
-    content: event[:content],
-    image_url: image_urls[event[:event_name]]
+experiences.each do |experience|
+  Experience.create!(
+    location: experience[:location],
+    title: experience[:title],
+    content: experience[:content],
+    image_url: photo_url[experience[:title]]
   )
 end
 

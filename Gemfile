@@ -77,5 +77,5 @@ end
 
 
 # My Add-ons
-
+gem "cloudinary"
 gem "devise"
