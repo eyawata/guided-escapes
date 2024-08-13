@@ -11,47 +11,47 @@
         <%= image_tag 'https://images.pexels.com/photos/20187381/pexels-photo-20187381/free-photo-of-sapporo-fushimi-inari-shrine-in-winter.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' %>
       <% end %>
   </div>
-
   <%= link_to 'Back to all Experiences', experiences_path %>
-
- <div style="display: flex;">
-
-  <div class="experience-details" style="flex: 6; padding-right: 20px;">
-    <h1><%= @experience.title %></h1>
-    <ul style="list-style-type: none; display: flex; gap: 10px;">
-      <li><%=@experience.location%></li>
-      <li><%=@experience.duration%></li>
-      <li>Experience Tag</li>
-    </ul>
-
-    <div class="experience-show-user">
-      <p>About your guide</p>
-      <div class="user-host-pill grid-item">
-        <img src="https://avatars.githubusercontent.com/u/74129604?v=4" alt="User Photo" class="user-host-show-photo">
-         <div class="user-info">
-          <h3><%= @experience.user.first_name %></h3>
-          <p>Guide</p>
-         </div>
-        <div class="user-host-show-rating">
-          <p>4.7</p>
-          <div class="stars">
-            &#9733;&#9733;&#9733;&#9733;&#9733;
+  <div style="display: flex;">
+    <div class="experience-details" style="flex: 6; padding-right: 20px;">
+      <h1><%= @experience.title %></h1>
+      <ul style="list-style-type: none; display: flex; gap: 10px;">
+        <li><%=@experience.location%></li>
+        <li><%=@experience.duration%></li>
+        <li>Experience Tag</li>
+      </ul>
+      <div class="experience-show-user">
+        <p>About your guide</p>
+        <div class="user-host-pill grid-item">
+          <img src="https://avatars.githubusercontent.com/u/74129604?v=4" alt="User Photo" class="user-host-show-photo">
+          <div class="user-info">
+            <h3><%= @experience.user.first_name %></h3>
+            <p>Guide</p>
+          </div>
+          <div class="user-host-show-rating">
+            <p>4.7</p>
+            <div class="stars">
+              &#9733;&#9733;&#9733;&#9733;&#9733;
+            </div>
           </div>
         </div>
       </div>
+      <div class="epxerience-show-content">
+        <p>Experience Details:</p>
+        <p><%= @experience.content %></p>
+      </div>
     </div>
-
-
-    <div class="epxerience-show-content">
-      <p>Experience Details:</p>
-      <p><%= @experience.content %></p>
+    <div class="booking-form" style="flex: 4; position: sticky; top: 0;">
+      <%# This form should float on the right side of the screen %>
+      <%# This is where the booking form can go @eri %>
+      <h3>Pick your Dates</h3>
+      <%= simple_form_for [@experience, @booking] do |f| %>
+        <%= f.input :date %>
+        <%= f.submit %>
+      <% end %>
+      <h4>Price Breakdown</h4>
+      <span>Price</span>
+      <span>$100</span>
     </div>
   </div>
-
-  <div class="booking-form" style="flex: 4; position: sticky; top: 0;">
-    <%# This form should float on the right side of the screen %>
-    <%# This is where the booking form can go @eri %>
-  </div>
-</div>
-
 </div>
