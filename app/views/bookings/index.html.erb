@@ -3,7 +3,7 @@
   <div class="row justify-content-center">
     <div class="col-7">
       <% @bookings.each do |booking| %>
-        <div class="card-product">
+        <div class="card-product my-3">
           <%= image_tag booking.experience.photo_url %>
           <div class="card-product-infos mx-3">
             <h2><strong><%= booking.experience.title %></strong></h2>
@@ -21,7 +21,7 @@
     <div class="row justify-content-center">
     <div class="col-7">
       <% @received_bookings.each do |received_booking| %>
-      <div class="card-product">
+      <div class="card-product my-3">
         <%= image_tag received_booking.experience.photo_url %>
         <div class="card-product-infos mx-3">
           <h2><strong><%= received_booking.experience.title %></strong></h2>
@@ -36,4 +36,5 @@
       <% end %>
     </div>
   </div>
+  <%= link_to "Back to Experiences", experiences_path, class:"btn btn-info"  %>
 </div>
