@@ -31,3 +31,48 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
+/* Ali`s index cards */
+.card {
+  width: 382px;
+  height: 460px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Ensure the card is the reference for absolute positioning */
+}
+.card-image {
+  width: 358px;
+  height: 320px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.card-text-details {
+  font-family: 'Inria Serif', serif;
+  font-size: large;
+  margin-top: 10px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
