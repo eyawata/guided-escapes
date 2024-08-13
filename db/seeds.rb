@@ -46,16 +46,14 @@ experiences = [
 
 # create two users - guide and traveller
 
-# 10.times do
-#   user = User.create!(
-#     first_name: Faker::Name.first_name,
-#     last_name: Faker::Name.last_name,
-#     email: Faker::Internet.email,
-#     password: '123123' # needs to be at least 6 characters
-#     # add any additional attributes you have on your model
-#   )
-
-# end
+10.times do
+  user = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: '123123' # needs to be at least 6 characters
+ )
+end
 
 
 puts "Creating experience!"
