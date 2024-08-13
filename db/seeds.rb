@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'nokogiri'
+require 'faker'
 # This file should ensure the existence of records required to run the application in every environment (production,
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -10,10 +13,10 @@
 # db/seeds.rb
 
 # Clear existing data
-Event.destroy_all
+Experience.destroy_all
 
 # Real image URLs
-photo_url = {
+image_url = {
   "Tokyo Sakura Festival" => "https://images.pexels.com/photos/4151484/pexels-photo-4151484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   "Gion Matsuri" => "https://images.pexels.com/photos/1876568/pexels-photo-1876568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   "Osaka Night Food Tour" => "https://images.pexels.com/photos/2070033/pexels-photo-2070033.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -40,14 +43,32 @@ experiences = [
   { location: "Fukuoka", title: "Fukuoka Hakata Gion Yamakasa", content: "Experience the excitement of the Hakata Gion Yamakasa festival, with a guided tour of Fukuoka's historical sites and local cuisine." }
 ]
 
-# Create events
+# create two users - guide and traveller
+
+# 10.times do
+#   user = User.create!(
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     password: '123123' # needs to be at least 6 characters
+#     # add any additional attributes you have on your model
+#   )
+
+# end
+
+
+puts "Creating experience!"
+
 experiences.each do |experience|
-  Experience.create!(
+  exp = Experience.new(
     location: experience[:location],
     title: experience[:title],
     content: experience[:content],
-    image_url: photo_url[experience[:title]]
-  )
-end
+    photo_url: image_url[experience[:title]],
+    price: rand(2000..5000),
+    duration: rand(2..10)
 
-puts "Seed data created successfully!"
+  )
+  exp.user = User.find(29)
+  end
+  puts "Seed data created !"
