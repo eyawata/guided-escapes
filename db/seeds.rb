@@ -14,6 +14,7 @@ require 'faker'
 
 # Clear existing data
 Experience.destroy_all
+User.destroy_all
 
 # Real image URLs
 image_url = {
@@ -60,15 +61,14 @@ experiences = [
 puts "Creating experience!"
 
 experiences.each do |experience|
-  exp = Experience.new(
+  exp = Experience.create!(
     location: experience[:location],
     title: experience[:title],
     content: experience[:content],
     photo_url: image_url[experience[:title]],
     price: rand(2000..5000),
-    duration: rand(2..10)
-
+    duration: rand(2..10),
+    user: User.all.sample
   )
-  exp.user = User.find(29)
   end
   puts "Seed data created !"
