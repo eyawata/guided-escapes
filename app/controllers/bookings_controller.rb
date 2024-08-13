@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def index
-    @user = current_user
-    @bookings = @user.bookings
+    @bookings = current_user.bookings
+    @received_bookings = current_user.bookings_as_guide
   end
 
   # NEW is just for testing, but will be a partial instead of a page.
