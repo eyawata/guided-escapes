@@ -73,3 +73,14 @@ experiences.each do |experience|
   exp.photo.attach(io: file, filename: "#{experience[:title].parameterize}.jpeg", content_type: 'image/jpeg')
 end
 puts "Seed data created!"
+
+10.times do
+  Booking.create!(
+    experience: Experience.all.sample,
+    user: User.all.sample,
+    date: Date.today,
+    status: rand(1..3) # needs to be at least 6 characters
+  )
+end
+
+puts "Created #{Booking.count} bookings!"

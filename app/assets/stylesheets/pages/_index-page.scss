@@ -1,0 +1,22 @@
+
+
+.image-container {
+  display: flex;
+  justify-content: center;
+}
+
+
+.hosted-by {
+  font-size: 1em;
+  color: #333;
+  margin-top: 5px; /* Adjust this value as needed */
+}
+
+.price {
+  font-size: 1.25em;
+  font-weight: bold;
+  color: #333;
+  position: absolute;
+  bottom: -15px; /* Adjust this value as needed */
+  right: 5px; /* Adjust this value as needed */
+}

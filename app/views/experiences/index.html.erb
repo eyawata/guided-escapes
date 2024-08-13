@@ -1,2 +1,30 @@
-<h1>Experiences#index</h1>
-<p>Find me in app/views/experiences/index.html.erb</p>
+<div class="container mt-4">
+  <div class="d-flex justify-content-center">
+    <div class="header-item mx-3">Hikings</div>
+    <div class="header-item mx-3">Shoppings</div>
+    <div class="header-item mx-3">Cultural</div>
+    <div class="header-item mx-3">Foods</div>
+  </div>
+</div>
+
+<div class="cards-container">
+  <div class="cards-container">
+  <% @experiences.each do |experience| %>
+  <div class="card">
+    <div class="image-container">
+      <% if experience.photo.attached? %>
+        <%= cl_image_tag experience.photo.key, class: 'card-image' %>
+      <% else %>
+        <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU', class: 'card-image' %>
+      <% end %>
+    </div>
+    <div class="card-content">
+      <h5 class="card-title"><%= experience.title %></h5>
+      <p class="card-text-details">Hiking at Mt. Fuji</p>
+      <p class="hosted-by">Hosted by Ali</p>
+      <p class="price">200 USD</p>
+    </div>
+  </div>
+  <% end %>
+  </div>
+</div>
