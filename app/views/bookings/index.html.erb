@@ -1,10 +1,11 @@
 <div class="container">
-  <h1>All Bookings</h1>
+  <h1>Bookings</h1>
   <ul>
-    <li class="text-decoration-none">
+    <li>
       <h2><% @bookings.each do |booking| %></h2>
       <p><%= booking.experience.title %></p>
-      <p>Host: <%= booking.experience.title.users %></p>
+      <p><strong>Status:</strong> <%= booking.experience.date %></p>
+      <p><strong>Price:</strong> <%= booking.experience.price %></p>
       <% end %>
     </li>
   </ul>
