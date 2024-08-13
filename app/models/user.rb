@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :experiences
   has_many :bookings
   has_many :reviews
+  has_many :bookings_as_guide, through: :experiences, source: :bookings
 end
