@@ -1,7 +1,7 @@
 <div class="container">
   <h3>Pick your Dates</h3>
   <%= simple_form_for [@experience, @booking] do |f| %>
-    <%= f.date :date %>
+    <%= f.input :date %>
     <%= f.submit %>
   <% end %>
   <h4>Price Breakdown</h4>
