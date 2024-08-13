@@ -71,4 +71,4 @@ experiences.each do |experience|
     user: User.all.sample
   )
   end
-  puts "Seed data created !"
+  puts "Seed data created!"
