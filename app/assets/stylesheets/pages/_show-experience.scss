@@ -2,12 +2,27 @@
 
 }
 
-.experience-images-header{
+.main-image {
 
 }
 
+.experience-images-header {
+  margin-top: 24px;
+  margin-bottom: 26px;
+    .main-image {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+ }
+
+
 .experience-details{
+  border-radius: 20px;
   background-color: $secondary-color;
+  margin-right: 10px;
 }
 
 .epxerience-show-content{
