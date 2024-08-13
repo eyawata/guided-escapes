@@ -1,7 +1,4 @@
 <%# Checks stylesheets 1. _user-host-pill and 2. _show-experiences %>
-
-<h1>Experiences#show</h1>
-
 <div class="container">
 
   <div class="experience-header">
@@ -9,7 +6,7 @@
   </div>
 
   <div class="experience-images-header">
-    <h2>Images will be here</h2>
+      <img src="https://images.pexels.com/photos/20187381/pexels-photo-20187381/free-photo-of-sapporo-fushimi-inari-shrine-in-winter.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Experience Image" class="main-image">
   </div>
 
   <%= link_to 'Back to all Experiences', experiences_path %>
@@ -27,7 +24,7 @@
     <div class="experience-show-user">
       <p>About your guide</p>
       <div class="user-host-pill">
-        <img src="path_to_image" alt="User Photo" class="user-host-show-photo">
+        <img src="https://avatars.githubusercontent.com/u/74129604?v=4" alt="User Photo" class="user-host-show-photo">
          <div class="user-info">
           <h3><%= @experience.user.first_name %></h3>
           <p>Guide</p>
