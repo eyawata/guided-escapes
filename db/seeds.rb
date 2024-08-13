@@ -13,6 +13,7 @@ require 'faker'
 # db/seeds.rb
 
 # Clear existing data
+Booking.destroy_all
 Experience.destroy_all
 User.destroy_all
 
@@ -47,19 +48,18 @@ experiences = [
 # create two users - guide and traveller
 
 10.times do
-  user = User.create!(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: '123123' # needs to be at least 6 characters
- )
+  User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: '123123' # needs to be at least 6 characters
+  )
 end
-
 
 puts "Creating experience!"
 
 experiences.each do |experience|
-  exp = Experience.create!(
+  Experience.create!(
     location: experience[:location],
     title: experience[:title],
     content: experience[:content],
@@ -70,6 +70,5 @@ experiences.each do |experience|
   )
   file = URI.open(image_url[experience[:title]])
   exp.photo.attach(io: file, filename: "#{experience[:title].parameterize}.jpeg", content_type: 'image/jpeg')
-
-  end
-  puts "Seed data created!"
+end
+puts "Seed data created!"
