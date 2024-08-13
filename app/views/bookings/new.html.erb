@@ -1,0 +1,17 @@
+<div class="container">
+  <h3>Pick Your Dates</h3>
+  <%# CALENDAR %>
+  <%= simple_form_for [@experience, @booking] do |f| %>
+    <%= f.input :date %>
+    <%# Price breakdown %>
+    <h4>Price Breakdown</h4>
+    <div class="show-price">
+      <p>Price</p>
+      <%= @experience.price %>
+      <p>Tax</p>
+      <p>$10</p>
+    </div>
+    <%# Submit Booking %>
+    <%= f.submit %>
+  <% end %>
+</div>

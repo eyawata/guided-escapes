@@ -3,13 +3,15 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @experience = Experience.find(params[:id])
-    @booking = Booking.new()
-    @user = current_user
-    @booking.user = @user
+    # booking needs experience, user, status, start date
+    @booking = Booking.new(booking_params)
+    @experience = Experience.find(params[:experience_id])
+    @booking.status = "pending"
+    @booking.user = current_user
     @booking.experience = @experience
+
     if @booking.save
-      redirect to experience_path(experience)
+      redirect_to experience_path(@experience)
     else
       render "#", status: :unprocessable_entity
     end
@@ -18,6 +20,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date)
+    params.require(:booking).permit(:experience, :user, :status, :date)
   end
 end
