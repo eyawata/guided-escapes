@@ -9,7 +9,8 @@
             <h2><strong><%= booking.experience.title %></strong></h2>
             <p><strong>Date:</strong> <%= booking.date %></p>
             <p><strong>Status:</strong> <%= booking.status %></p>
-            <p><strong>Price:</strong> <%= booking.experience.price %></p>
+            <p><strong>Duration:</strong> <%= booking.experience.duration %> hours</p>
+            <p><strong>Price:</strong> $<%= booking.experience.price.round %></p>
           </div>
         </div>
       <% end %>
