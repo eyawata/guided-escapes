@@ -5,5 +5,6 @@ class Booking < ApplicationRecord
   validates :experience, presence: true
   validates :user, presence: true
   validates :date, presence: true
-  validates :status, presence: true
+
+  enum status: [ :pending, :accepted, :rejected, :archived ]
 end
