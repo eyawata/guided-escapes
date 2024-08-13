@@ -2,9 +2,20 @@
 
 }
 
-.experience-images-header{
+.main-image {
 
 }
+
+.experience-images-header {
+    .main-image {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+ }
+
 
 .experience-details{
   background-color: $secondary-color;

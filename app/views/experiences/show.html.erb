@@ -1,12 +1,15 @@
 <%# Checks stylesheets 1. _user-host-pill and 2. _show-experiences %>
 <div class="container">
 
-  <div class="experience-header">
-    <h1><%= @experience.title %></h1>
-  </div>
+  <%# <div class="experience-header"> %>
+  <%# </div> %>
 
   <div class="experience-images-header">
-      <img src="https://images.pexels.com/photos/20187381/pexels-photo-20187381/free-photo-of-sapporo-fushimi-inari-shrine-in-winter.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Experience Image" class="main-image">
+      <% if @experience.photo.attached? %>
+        <%= cl_image_tag @experience.photo.key, class: "main-image" %>
+      <% else %>
+        <%= image_tag 'https://images.pexels.com/photos/20187381/pexels-photo-20187381/free-photo-of-sapporo-fushimi-inari-shrine-in-winter.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' %>
+      <% end %>
   </div>
 
   <%= link_to 'Back to all Experiences', experiences_path %>
