@@ -68,6 +68,7 @@ experiences.each do |experience|
     duration: rand(2..10),
     user: User.all.sample
   )
+  file = URI.open(image_url[experience[:title]])
+  exp.photo.attach(io: file, filename: "#{experience[:title].parameterize}.jpeg", content_type: 'image/jpeg')
 end
-
 puts "Seed data created!"
