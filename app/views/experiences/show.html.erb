@@ -3,53 +3,71 @@
   <%# <div class="experience-header"> %>
   <%# </div> %>
   <div class="experience-images-header">
-    <% if @experience.photo.attached? %>
-      <%= cl_image_tag @experience.photo.key, class: "main-image" %>
+    <% if @experience.photos.attached? && @experience.photos.count == 5 %>
+      <div class="image-grid">
+        <% @experience.photos.each_with_index do |photo, index| %>
+          <div class="image-grid-item <%= "item#{index + 1}" if index > 0 %> <%= 'main' if index == 0 %>">
+            <%= image_tag photo, class: "image-item" %>
+          </div>
+        <% end %>
+      </div>
     <% else %>
       <%= image_tag 'https://images.pexels.com/photos/20187381/pexels-photo-20187381/free-photo-of-sapporo-fushimi-inari-shrine-in-winter.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' %>
     <% end %>
   </div>
-  <%= link_to 'Back to all Experiences', experiences_path %>
-  <div style="display: flex;">
-    <div class="experience-details" style="flex: 6; padding-right: 20px;">
-      <h1><%= @experience.title %></h1>
-      <ul style="list-style-type: none; display: flex; gap: 10px;">
-        <li><%=@experience.location%> • </li>
-        <li><%=@experience.duration%>Days Duration • </li>
-        <li>Experience Tag</li>
-      </ul>
-      <div class="experience-show-user">
-        <h3 class="show-h3">About your guide</h3>
-        <div class="user-host-pill grid-item">
-          <img src="https://avatars.githubusercontent.com/u/74129604?v=4" alt="User Photo" class="user-host-show-photo">
-          <div class="user-info">
-            <h3><%= @experience.user.first_name %></h3>
-            <p>Guide</p>
-          </div>
-          <div class="user-host-show-rating">
-            <p>4.7</p>
-            <div class="stars">
-              &#9733;&#9733;&#9733;&#9733;&#9733;
-            </div>
+</div>
+</div>
+<%= link_to 'Back to all Experiences', experiences_path %>
+<div style="display: flex;">
+  <div class="experience-details" style="flex: 6; padding-right: 20px;">
+    <h1><%= @experience.title %></h1>
+    <ul style="list-style-type: none; display: flex; gap: 10px;">
+      <li><%=@experience.location%> • </li>
+      <li><%=@experience.duration%>Days Duration • </li>
+      <li>Experience Tag</li>
+    </ul>
+    <div class="experience-show-user">
+      <h3 class="show-h3">About your guide</h3>
+      <div class="user-host-pill grid-item">
+        <img src="https://avatars.githubusercontent.com/u/74129604?v=4" alt="User Photo" class="user-host-show-photo">
+        <div class="user-info">
+          <h3><%= @experience.user.first_name %></h3>
+          <p>Guide</p>
+        </div>
+        <div class="user-host-show-rating">
+          <p>4.7</p>
+          <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
           </div>
         </div>
       </div>
-      <div class="epxerience-show-content">
-        <h3>Experience Details:</h3>
-        <p><%= @experience.content %></p>
-      </div>
     </div>
-    <div class="booking-form" style="flex: 4; position: sticky; top: 0;">
-      <h3>Pick your Date</h3>
+    <div class="booking-form">
+      <h3 class="my-3">Pick your Date</h3>
       <%= simple_form_for [@experience, @booking] do |f| %>
         <%= f.input :date,
             as: :string,
             input_html: { data: { controller: "datepicker" } } %>
-        <%= f.submit %>
+        <h4>Price Breakdown</h4>
+        <div class="price-details row">
+          <div class="price-row">
+            <span id="price-heading">Price</span>
+            <span id="price-num">$<%= @experience.price.round %></span>
+          </div>
+          <div class="duration-row">
+            <span id="duration-heading">Duration</span>
+            <span id="duration-num"><%= @experience.duration %> Hours</span>
+          </div>
+          <div class="price-row subtotal">
+            <span id="price-heading">Subtotal</span>
+            <span id="price-num">$<%= @experience.price.round %></span>
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+          <%= f.submit 'Book Now', class: 'btn mt-2 btn-primary' %>
+        </div>
       <% end %>
-      <h4>Price Breakdown</h4>
-      <span>Price</span>
-      <span>$100</span>
     </div>
   </div>
+</div>
 </div>

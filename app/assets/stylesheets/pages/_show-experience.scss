@@ -2,22 +2,60 @@
 
 }
 
-.show-3{
-  padding-top: 10px;
-  padding-bottom: 10px;
+.image-grid {
+  display: grid;
+  grid-template-areas:
+    "main main item1 item2"
+    "main main item3 item4";
+  gap: 10px;
+  height: 500px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.experience-images-header {
-  margin-top: 24px;
-  margin-bottom: 26px;
-    .main-image {
-      width: 100%;
-      height: auto;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
- }
+.image-grid-item {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.main {
+  grid-area: main;
+}
+
+.item1 {
+  grid-area: item1;
+}
+
+.item2 {
+  grid-area: item2;
+}
+
+.item3 {
+  grid-area: item3;
+}
+
+.item4 {
+  grid-area: item4;
+}
+
+.image-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+// .experience-images-header {
+//   margin-top: 24px;
+//   margin-bottom: 26px;
+//     .main-image {
+//       width: 100%;
+//       height: auto;
+//       max-height: 400px;
+//       object-fit: cover;
+//       border-radius: 10px;
+//     }
+//  }
 
 
 .experience-details{
@@ -34,5 +72,75 @@
 }
 
 .booking-form{
+  background-color: $secondary-color;
+  border-radius: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 15px;
+  height: 650px;
+  flex: 4;
+  position: sticky;
+  top: 0;
+}
 
+.booking-form btn {
+  border: 1px solid rgba(0,0,0,0.3);
+  width: 100%;
+  border-radius: 10px;
+  font-weight: 800;
+  color: $primary-color;
+  font-size: 120%;
+}
+
+.booking-form btn:hover {
+  border: 1px solid rgba(0,0,0,0.3);
+  width: 100%;
+}
+
+.price-details {
+  display: flex;
+  width: 100%;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: stretch;
+  padding-right: 0;
+}
+
+#price-heading {
+  text-align: left;
+  padding-left: 0;
+}
+
+#price-num {
+  text-align: right;
+  padding-right: 0
+}
+
+.duration-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: stretch;
+  padding-right: 0;
+  margin-bottom: 20px;
+}
+
+#duration-heading {
+  text-align: left;
+  padding-left: 0;
+}
+
+#duration-num {
+  text-align: right;
+  padding-right: 0
+}
+
+.subtotal {
+  font-weight: 800;
+  color: $primary-color;
+  font-size: 120%;
 }
