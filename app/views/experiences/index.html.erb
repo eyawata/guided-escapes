@@ -24,7 +24,7 @@
       <p class="hosted-by"><%= experience.user.first_name %></p>
       <p class="price"><%= experience.price.round %> USD</p>
     </div>
-      <%# <%= link_to '', experience_path(experience['id']), class: 'card-experience-link' %>
+      <%= link_to '', experience_path(experience), class: 'card-experience-link' %>
   </div>
   <% end %>
   </div>
