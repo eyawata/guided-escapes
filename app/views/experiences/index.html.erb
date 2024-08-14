@@ -28,4 +28,27 @@
   </div>
   <% end %>
   </div>
+  <%# adding map %>
+
+  <button type="button" class="map-button mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Explore Map <i class="fa-regular fa-map"></i>
+  </button>
+
+<!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Explore Map <i class="fa-regular fa-map"></i></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= render "map", locals: {markers: @markers}, class:"map-size" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -67,7 +67,9 @@ experiences.each do |experience|
     photo_url: image_url[experience[:title]],
     price: rand(2000..5000),
     duration: rand(2..10),
-    user: User.all.sample
+    user: User.all.sample,
+    latitude: 48.8649574 + rand(0.1..0.6),
+    longitude: 2.380061 + rand(0.1..0.6),
   )
   file = URI.open(image_url[experience[:title]])
   exp.photo.attach(io: file, filename: "#{experience[:title].parameterize}.jpeg", content_type: 'image/jpeg')
