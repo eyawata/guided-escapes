@@ -14,7 +14,7 @@
               <p><strong>Price:</strong> $<%= booking.experience.price.round %></p>
             </div>
           </div>
-          <%= link_to '', experience_path(booking.experience) %>
+          <%= link_to '', experience_path(booking.experience), class:"card-experience-link" %>
 
         <% end %>
       </div>
