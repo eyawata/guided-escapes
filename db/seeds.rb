@@ -70,7 +70,9 @@ experiences.each do |experience|
     photo_url: image_url[experience[:title]],
     price: rand(2000..5000),
     duration: rand(2..10),
-    user: User.all.sample
+    user: User.all.sample,
+    latitude: 2.380061 + rand(0.01..0.06),
+    longitude: 48.8649574 + rand(0.1..0.6),
   )
   image_url[experience[:title]].each_with_index do |url, index|
     file = URI.open(url)

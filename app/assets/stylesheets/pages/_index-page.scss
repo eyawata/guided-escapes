@@ -20,3 +20,13 @@
   bottom: -15px; /* Adjust this value as needed */
   right: 5px; /* Adjust this value as needed */
 }
+
+.modal-body {
+  width: 100%;
+}
+
+.mapboxgl-canvas{
+  object-fit: cover;
+  background-size: cover;
+  height: 600px;
+}
