@@ -1,4 +1,9 @@
 Geocoder.configure(
+  timeout: 5,                                   # geocoding service timeout (secs)
+  lookup: :mapbox,                              # name of geocoding service (symbol)
+  api_key: ENV['MAPBOX_API_KEY'],               # API key for geocoding service
+  units: :km,
+  
   # Geocoding options
   # timeout: 3,                 # geocoding service timeout (secs)
   # lookup: :nominatim,         # name of geocoding service (symbol)
@@ -13,10 +18,10 @@ Geocoder.configure(
   # Exceptions that should not be rescued by default
   # (if you want to implement custom error handling);
   # supports SocketError and Timeout::Error
-  always_raise: :all,
+  # always_raise: :all,
 
-  # Calculation options
-  units: :km,                 # :km for kilometers or :mi for miles
+  # # Calculation options
+  # units: :km,                 # :km for kilometers or :mi for miles
   # distances: :linear          # :spherical or :linear
 
   # Cache configuration
