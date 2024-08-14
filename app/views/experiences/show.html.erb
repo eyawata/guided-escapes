@@ -40,9 +40,11 @@
       </div>
     </div>
     <div class="booking-form" style="flex: 4; position: sticky; top: 0;">
-      <h3>Pick your Dates</h3>
+      <h3>Pick your Date</h3>
       <%= simple_form_for [@experience, @booking] do |f| %>
-        <%= f.input :date %>
+        <%= f.input :date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
         <%= f.submit %>
       <% end %>
       <h4>Price Breakdown</h4>

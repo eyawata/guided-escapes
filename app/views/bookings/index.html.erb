@@ -1,9 +1,9 @@
 <div class="container">
-  <h1 class="my-3">Bookings</h1>
   <div class="row justify-content-center">
     <div class="col-7">
+    <h1 class="my-3">Bookings</h1>
       <% @bookings.each do |booking| %>
-        <div class="card-product">
+        <div class="card-product my-3">
           <%= image_tag booking.experience.photo_url %>
           <div class="card-product-infos mx-3">
             <h2><strong><%= booking.experience.title %></strong></h2>
@@ -17,11 +17,11 @@
     </div>
   </div>
 
-  <h1 class="my-3">Received Bookings</h1>
-    <div class="row justify-content-center">
+  <div class="row justify-content-center">
     <div class="col-7">
+    <h1 class="my-3">Received Bookings</h1>
       <% @received_bookings.each do |received_booking| %>
-      <div class="card-product">
+      <div class="card-product my-3">
         <%= image_tag received_booking.experience.photo_url %>
         <div class="card-product-infos mx-3">
           <h2><strong><%= received_booking.experience.title %></strong></h2>
@@ -34,6 +34,7 @@
         </div>
       </div>
       <% end %>
+    <%= link_to "Back to Experiences", experiences_path, class:"btn btn-info"  %>
     </div>
   </div>
 </div>
