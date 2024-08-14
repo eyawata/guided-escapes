@@ -72,7 +72,7 @@ experiences.each do |experience|
     duration: rand(2..10),
     user: User.all.sample,
     latitude: 48.8649574 + rand(0.1..0.6),
-    longitude: 2.380061 + rand(0.1..0.6),
+    longitude: 2.380061 + rand(0.1..0.6)
   )
   image_url[experience[:title]].each_with_index do |url, index|
     file = URI.open(url)
