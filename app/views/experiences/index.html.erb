@@ -1,4 +1,4 @@
-<div class="container mt-4 mb-4">
+<div class="container mt-4 mb-4 ">
   <div class="d-flex justify-content-center">
     <div class="header-item mx-3">Hikings</div>
     <div class="header-item mx-3">Shoppings</div>
@@ -12,8 +12,8 @@
   <% @experiences.each do |experience| %>
   <div class="card-experience">
     <div class="image-container">
-      <% if experience.photo.attached? %>
-        <%= cl_image_tag experience.photo.key, class: 'card-image' %>
+      <% if experience.photos.attached? %>
+        <%= cl_image_tag experience.photos.to_a.first.key, class: 'card-image' %>
       <% else %>
         <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU', class: 'card-image' %>
       <% end %>
@@ -24,7 +24,7 @@
       <p class="hosted-by"><%= experience.user.first_name %></p>
       <p class="price"><%= experience.price.round %> USD</p>
     </div>
-      <%= link_to '', experience_path(experience), class: 'card-experience-link' %>
+        <%= link_to '', experience_path(experience), class: 'card-experience-link position-absolute' %>
   </div>
   <% end %>
   </div>
