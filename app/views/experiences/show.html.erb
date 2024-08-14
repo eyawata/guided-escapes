@@ -19,7 +19,7 @@
         <li>Experience Tag</li>
       </ul>
       <div class="experience-show-user">
-        <p>About your guide</p>
+        <h3 class="show-h3">About your guide</h3>
         <div class="user-host-pill grid-item">
           <img src="https://avatars.githubusercontent.com/u/74129604?v=4" alt="User Photo" class="user-host-show-photo">
           <div class="user-info">
@@ -35,16 +35,16 @@
         </div>
       </div>
       <div class="epxerience-show-content">
-        <p>Experience Details:</p>
+        <h3>Experience Details:</h3>
         <p><%= @experience.content %></p>
       </div>
     </div>
     <div class="booking-form" style="flex: 4; position: sticky; top: 0;">
-      <%# This form should float on the right side of the screen %>
-      <%# This is where the booking form can go @eri %>
-      <h3>Pick your Dates</h3>
+      <h3>Pick your Date</h3>
       <%= simple_form_for [@experience, @booking] do |f| %>
-        <%= f.input :date %>
+        <%= f.input :date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
         <%= f.submit %>
       <% end %>
       <h4>Price Breakdown</h4>
