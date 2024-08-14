@@ -1,5 +1,22 @@
-.experience-header {
+.show-page-body {
+  margin-right: 60px;
+  margin-left: 60px;
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
 
+.lightpurple-small-ptn{
+  margin-top: 5px;
+  font-size: 14px;
+  padding: 6px 10px;
+  color: $primary-color;
+  background-color: $secondary-color ;
+  border-color: $secondary-color;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $secondary-color;
+  }
 }
 
 .image-grid {
@@ -45,17 +62,9 @@
 }
 
 
-// .experience-images-header {
-//   margin-top: 24px;
-//   margin-bottom: 26px;
-//     .main-image {
-//       width: 100%;
-//       height: auto;
-//       max-height: 400px;
-//       object-fit: cover;
-//       border-radius: 10px;
-//     }
-//  }
+.experience-images-header {
+  margin-top: 5px;
+ }
 
 
 .experience-details{
@@ -67,12 +76,13 @@
   padding-top: 15px;
 }
 
-.epxerience-show-content{
+// .epxerience-show-content{
 
-}
+// }
 
 .booking-form{
   background-color: $secondary-color;
+  margin-left: 20px;
   border-radius: 20px;
   padding-left: 40px;
   padding-right: 40px;
