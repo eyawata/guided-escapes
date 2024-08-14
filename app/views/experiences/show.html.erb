@@ -29,7 +29,7 @@
       <li>Experience Tag</li>
     </ul>
     <div class="experience-show-user">
-      <h3 class="show-h3">About your guide</h3>
+      <h3 class="h3-show">About your guide</h3>
       <div class="user-host-pill grid-item">
         <img src="https://avatars.githubusercontent.com/u/74129604?v=4" alt="User Photo" class="user-host-show-photo">
         <div class="user-info">
@@ -46,7 +46,17 @@
     </div>
     <div>
       <div>
-        <h3>About your trip:</h3>
+        <h3 class="h3-show">Experience Higlights</h3>
+      </div>
+      <div>
+        <ul class="experience-highlights">
+          <li><%= raw "Explore the <strong>stunning</strong> landscapes of Japan's countryside, including majestic mountains and tranquil lakes." %></li>
+          <li><%= raw "Immerse yourself in the <strong>rich culture</strong> with guided tours to ancient temples and local markets." %></li>
+          <li><%= raw "Savor <strong>delicious</strong> local cuisine, with opportunities to try sushi-making and traditional tea ceremonies." %></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="h3-show">About your trip</h3>
       </div>
       <div>
         <p><%= @experience.content %></p>
