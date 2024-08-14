@@ -1,32 +1,31 @@
 <div class="container mt-4 mb-4 ">
   <div class="d-flex justify-content-center">
-    <div class="header-item mx-3">Hikings</div>
-    <div class="header-item mx-3">Shoppings</div>
-    <div class="header-item mx-3">Cultural</div>
-    <div class="header-item mx-3">Foods</div>
+    <div class="header-item mx-3"><i class="fa-solid fa-mountain-sun fa-xl" style="color: #8356D1;"></i></div>
+    <div class="header-item mx-3"><i class="fa-solid fa-umbrella-beach fa-xl" style="color: #8356D1;"></i></div>
+    <div class="header-item mx-3"><i class="fa-solid fa-martini-glass-citrus fa-xl" style="color: #8356D1;"></i></div>
+    <div class="header-item mx-3"><i class="fa-solid fa-dungeon fa-xl" style="color:#8356D1;"></i></div>
   </div>
 </div>
-
 <div class="cards-container">
   <div class="cards-container">
-  <% @experiences.each do |experience| %>
-  <div class="card-experience">
-    <div class="image-container">
-      <% if experience.photos.attached? %>
-        <%= cl_image_tag experience.photos.to_a.first.key, class: 'card-image' %>
-      <% else %>
-        <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU', class: 'card-image' %>
-      <% end %>
-    </div>
-    <div class="card-content">
-      <h5 class="card-title"><%= experience.title %></h5>
-      <p class="card-text-details"><%= experience.content %></p>
-      <p class="hosted-by"><%= experience.user.first_name %></p>
-      <p class="price"><%= experience.price.round %> USD</p>
-    </div>
+    <% @experiences.each do |experience| %>
+      <div class="card-experience">
+        <div class="image-container">
+          <% if experience.photos.attached? %>
+            <%= cl_image_tag experience.photos.to_a.first.key, class: 'card-image' %>
+          <% else %>
+            <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU', class: 'card-image' %>
+          <% end %>
+        </div>
+        <div class="card-content">
+          <h5 class="card-title mt-1"><%= experience.title %></h5>
+          <p class="card-text-details"><%= experience.content %></p>
+          <p class="hosted-by"><%= experience.user.first_name %></p>
+          <p class="price"><%= experience.price.round %> USD</p>
+        </div>
         <%= link_to '', experience_path(experience), class: 'card-experience-link position-absolute' %>
-  </div>
-  <% end %>
+      </div>
+    <% end %>
   </div>
   <%# adding map %>
 
