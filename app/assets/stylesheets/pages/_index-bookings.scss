@@ -13,3 +13,18 @@
   position: absolute;
   left: 40%;
 }
+
+.lightpurple-btn{
+  margin-top: 7px;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 8px 12px;
+  color: $primary-color;
+  background-color: $secondary-color ;
+  border-color: $secondary-color;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $secondary-color;
+  }
+}
