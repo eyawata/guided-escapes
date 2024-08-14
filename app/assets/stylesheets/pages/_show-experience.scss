@@ -34,5 +34,75 @@
 }
 
 .booking-form{
+  background-color: $secondary-color;
+  border-radius: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 15px;
+  height: 650px;
+  flex: 4;
+  position: sticky;
+  top: 0;
+}
 
+.booking-form btn {
+  border: 1px solid rgba(0,0,0,0.3);
+  width: 100%;
+  border-radius: 10px;
+  font-weight: 800;
+  color: $primary-color;
+  font-size: 120%;
+}
+
+.booking-form btn:hover {
+  border: 1px solid rgba(0,0,0,0.3);
+  width: 100%;
+}
+
+.price-details {
+  display: flex;
+  width: 100%;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: stretch;
+  padding-right: 0;
+}
+
+#price-heading {
+  text-align: left;
+  padding-left: 0;
+}
+
+#price-num {
+  text-align: right;
+  padding-right: 0
+}
+
+.duration-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: stretch;
+  padding-right: 0;
+  margin-bottom: 20px;
+}
+
+#duration-heading {
+  text-align: left;
+  padding-left: 0;
+}
+
+#duration-num {
+  text-align: right;
+  padding-right: 0
+}
+
+.subtotal {
+  font-weight: 800;
+  color: $primary-color;
+  font-size: 120%;
 }

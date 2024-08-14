@@ -39,17 +39,31 @@
         <p><%= @experience.content %></p>
       </div>
     </div>
-    <div class="booking-form" style="flex: 4; position: sticky; top: 0;">
-      <h3>Pick your Date</h3>
+    <div class="booking-form">
+      <h3 class="my-3">Pick your Date</h3>
       <%= simple_form_for [@experience, @booking] do |f| %>
         <%= f.input :date,
             as: :string,
             input_html: { data: { controller: "datepicker" } } %>
-        <%= f.submit %>
+        <h4>Price Breakdown</h4>
+        <div class="price-details row">
+          <div class="price-row">
+            <span id="price-heading">Price</span>
+            <span id="price-num">$<%= @experience.price.round %></span>
+          </div>
+          <div class="duration-row">
+            <span id="duration-heading">Duration</span>
+            <span id="duration-num"><%= @experience.duration %> Hours</span>
+          </div>
+          <div class="price-row subtotal">
+            <span id="price-heading">Subtotal</span>
+            <span id="price-num">$<%= @experience.price.round %></span>
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+          <%= f.submit 'Book Now', class: 'btn mt-2 btn-primary' %>
+        </div>
       <% end %>
-      <h4>Price Breakdown</h4>
-      <span>Price</span>
-      <span>$100</span>
     </div>
   </div>
 </div>
