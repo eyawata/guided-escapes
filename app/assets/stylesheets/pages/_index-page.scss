@@ -1,15 +1,15 @@
-
-
 .image-container {
   display: flex;
   justify-content: center;
 }
 
-
 .hosted-by {
   font-size: 1em;
   color: #333;
   margin-top: 5px; /* Adjust this value as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .price {
