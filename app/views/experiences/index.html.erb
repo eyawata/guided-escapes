@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container mt-4 mb-4">
   <div class="d-flex justify-content-center">
     <div class="header-item mx-3">Hikings</div>
     <div class="header-item mx-3">Shoppings</div>
@@ -10,7 +10,7 @@
 <div class="cards-container">
   <div class="cards-container">
   <% @experiences.each do |experience| %>
-  <div class="card">
+  <div class="card-experience">
     <div class="image-container">
       <% if experience.photo.attached? %>
         <%= cl_image_tag experience.photo.key, class: 'card-image' %>
@@ -20,10 +20,11 @@
     </div>
     <div class="card-content">
       <h5 class="card-title"><%= experience.title %></h5>
-      <p class="card-text-details">Hiking at Mt. Fuji</p>
-      <p class="hosted-by">Hosted by Ali</p>
-      <p class="price">200 USD</p>
+      <p class="card-text-details"><%= experience.content %></p>
+      <p class="hosted-by"><%= experience.user.first_name %></p>
+      <p class="price"><%= experience.price.round %> USD</p>
     </div>
+      <%# <%= link_to '', experience_path(experience['id']), class: 'card-experience-link' %>
   </div>
   <% end %>
   </div>
