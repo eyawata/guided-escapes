@@ -2,10 +2,14 @@
   <div class="booking-container position-relative">
     <div class="row justify-content-center">
       <div class="col-7">
-      <h1 class="my-3">Bookings</h1>
+        <h1 class="my-3">Bookings</h1>
         <% @bookings.each do |booking| %>
           <div class="card-product my-3">
-            <%= image_tag booking.experience.photo_url %>
+            <% if booking.experience.photos.attached? %>
+              <%= cl_image_tag booking.experience.photos.to_a.first.key %>
+            <% else %>
+              <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU', class: 'card-image' %>
+            <% end %>
             <div class="card-product-infos mx-3">
               <h2><strong><%= booking.experience.title %></strong></h2>
               <p><strong>Date:</strong> <%= booking.date %></p>
@@ -15,15 +19,13 @@
             </div>
           </div>
           <%= link_to '', experience_path(booking.experience), class:"card-experience-link" %>
-
         <% end %>
       </div>
     </div>
-
     <% if @received_bookings.any? %>
       <div class="row justify-content-center">
         <div class="col-7">
-        <h1 class="my-3">Received Bookings</h1>
+          <h1 class="my-3">Received Bookings</h1>
           <% @received_bookings.each do |received_booking| %>
             <div class="card-product my-3">
               <%= image_tag received_booking.experience.photo_url %>
@@ -32,8 +34,8 @@
                 <p><strong>Date:</strong> <%= received_booking.date %></p>
                 <p><strong>Status:</strong> <%= received_booking.status %></p>
                 <%# <%# <div class="btn mt-3"> %>
-                  <%= link_to "Fake Accept", "#", class:"btn btn-primary" %>
-                  <%= link_to "Fake Reject", "#", class:"btn btn-danger" %>
+                <%= link_to "Fake Accept", "#", class:"btn btn-primary" %>
+                <%= link_to "Fake Reject", "#", class:"btn btn-danger" %>
               </div>
             </div>
           <% end %>
