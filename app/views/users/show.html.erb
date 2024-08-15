@@ -15,8 +15,8 @@
     <div class="user-rev-exp col-9">
       <h3><%= @user.first_name.capitalize %>'s Reviews</h3>
       <div class="user-reviews">
-        <% if @reviews.count > 0 %>
-          <% @reviews.each do |review| %>
+        <% if @user.reviews.count > 0 %>
+          <% @user.reviews.each do |review| %>
             <div class="review-card">
               <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar"%>
               <p><%= review.rating %> stars</p>
@@ -48,6 +48,25 @@
             <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar"%>
             <p>May 2024</p>
             <p>It was really fun with Jane Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+        <% end %>
+      </div>
+      <h3 class="mt-3">Browse <%= @user.first_name.capitalize %>'s Experiences</h3>
+      <div class="user-experiences">
+        <% @experiences.each do |experience| %>
+          <div class="card-product my-3">
+            <% if experience.photos.attached? %>
+              <%= cl_image_tag experience.photos.to_a.first.key %>
+            <% else %>
+              <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU', class: 'card-image' %>
+            <% end %>
+            <div class="card-product-infos d-flex justify-content-between">
+              <div class="info-left">
+                <h2><strong><%= experience.title %></strong></h2>
+                <p><i class="fa-solid fa-clock"></i> <%= experience.duration %> hours</p>
+              </div>
+            </div>
+            <%= link_to '', experience_path(experience), class:"card-product-link" %>
           </div>
         <% end %>
       </div>
