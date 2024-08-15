@@ -5,17 +5,17 @@
   margin-bottom: 100px;
 }
 
-.lightpurple-small-ptn{
+.lightpurple-small-btn{
   margin-top: 5px;
   font-size: 14px;
   padding: 6px 10px;
-  color: $primary-color;
-  background-color: $secondary-color ;
-  border-color: $secondary-color;
+  color: $primary-color !important;
+  background-color: $secondary-color !important;
+  border-color: $primary-color !important;
 
   &:hover {
-    background-color: $primary-color;
-    color: $secondary-color;
+    background-color: $primary-color !important;
+    color: $secondary-color !important;
   }
 }
 
@@ -92,24 +92,28 @@
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 15px;
-  height: 650px;
+  height: 670px;
   flex: 4;
   position: sticky;
   top: 0;
 }
 
-.booking-form btn {
+.booking-form .btn {
   border: 1px solid rgba(0,0,0,0.3);
   width: 100%;
   border-radius: 10px;
   font-weight: 800;
+  background-color: $primary-color;
   color: $primary-color;
   font-size: 120%;
+  margin-bottom: 10px;
 }
 
-.booking-form btn:hover {
+.booking-form .btn:hover {
   border: 1px solid rgba(0,0,0,0.3);
   width: 100%;
+  background-color: $primary-color;
+  color: $secondary-color;
 }
 
 .price-details {
