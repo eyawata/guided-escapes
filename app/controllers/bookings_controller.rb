@@ -18,6 +18,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @received_booking = Booking.find(params[:id])
+    if @received_booking.update(booking_params)
+      redirect_to bookings_path
+    else
+      render "#", status: :unprocessable_entity
+    end
+  end
+
   private
 
   def booking_params

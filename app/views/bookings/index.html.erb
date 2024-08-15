@@ -1,5 +1,5 @@
 <div class="main-container">
-  <div class="booking-container position-relative">
+  <div class="booking-container">
     <div class="row justify-content-center">
       <div class="col-7">
         <h1 class="my-3">Bookings</h1>
@@ -10,15 +10,20 @@
             <% else %>
               <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU', class: 'card-image' %>
             <% end %>
-            <div class="card-product-infos mx-3">
-              <h2><strong><%= booking.experience.title %></strong></h2>
-              <p><strong>Date:</strong> <%= booking.date %></p>
-              <p><strong>Status:</strong> <%= booking.status %></p>
-              <p><strong>Duration:</strong> <%= booking.experience.duration %> hours</p>
-              <p><strong>Price:</strong> $<%= booking.experience.price.round %></p>
+            <div class="card-product-infos d-flex justify-content-between">
+              <div class="info-left">
+                <h2><strong><%= booking.experience.title %></strong></h2>
+                <p><i class="fa-solid fa-calendar-days"></i> <%= booking.date %></p>
+                <p><i class="fa-solid fa-clock"></i> <%= booking.experience.duration %> hours</p>
+                <p> Guide: <%= booking.experience.user.first_name %></p>
+              </div>
+              <div class="info-right">
+                <div class="status-<%= booking.status %>"><p><strong><%= booking.status.capitalize %></strong></p></div>
+                <div class="product-price"><p><strong><%= number_to_currency(booking.experience.price, precision: 0) %></strong></p></div>
+              </div>
             </div>
+            <%= link_to '', experience_path(booking.experience), class:"card-product-link" %>
           </div>
-          <%= link_to '', experience_path(booking.experience), class:"card-experience-link" %>
         <% end %>
       </div>
     </div>
@@ -29,13 +34,20 @@
           <% @received_bookings.each do |received_booking| %>
             <div class="card-product my-3">
               <%= image_tag received_booking.experience.photo_url %>
-              <div class="card-product-infos mx-3">
+              <div class="card-product-infos position-relative">
                 <h2><strong><%= received_booking.experience.title %></strong></h2>
-                <p><strong>Date:</strong> <%= received_booking.date %></p>
-                <p><strong>Status:</strong> <%= received_booking.status %></p>
-                <%# <%# <div class="btn mt-3"> %>
-                <%= link_to "Fake Accept", "#", class:"btn btn-primary" %>
-                <%= link_to "Fake Reject", "#", class:"btn btn-danger" %>
+                <p><i class="fa-solid fa-calendar-days"></i> <%= received_booking.date %></p>
+                <p><i class="fa-solid fa-clock"></i> <%= received_booking.experience.duration %></p>
+                <p><strong>Status:</strong> <%= received_booking.status.capitalize %></p>
+                <%# added accept/reject buttons %>
+                  <div class="info-right position-absolute">
+                    <% if received_booking.status == "pending" %>
+                      <%= render "bookings/accept_reject", received_booking: received_booking %>
+                    <% else %>
+                      <p class="mt-4"><strong>This booking has been "<%= received_booking.status %>"</strong></p>
+                    <% end %>
+                  </div>
+                <%# End of button form  %>
               </div>
             </div>
           <% end %>
