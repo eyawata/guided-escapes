@@ -15,4 +15,22 @@ class ExperiencesController < ApplicationController
     @experience = Experience.find(params[:id])
     @booking = Booking.new
   end
+
+  def new
+    @experience = Experience.new
+  end
+
+  def create
+    @experience = Experience.new(experience_params)
+    @experience.user = current_user
+    if @experience.save
+      redirect_to @experience, notice: 'Experience was successfully created.'
+    else
+      render "#", status: :unprocessable_entity
+    end
+  end
+
+  def experience_params
+    params.require(:experience).permit(:location, :title, :content, :duration, :price)
+  end
 end

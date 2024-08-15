@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Create your experience on Guided Experiences</h2>
+  <%= simple_form_for @experience do |f| %>
+    <%= f.input :location %>
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <%= f.input :duration %>
+    <%= f.input :price %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+  <% end %>
+</div>
