@@ -2,6 +2,10 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
   <div class="form-inputs">
+    <div class="field">
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar %>
+    </div>
     <%= f.input :email, required: false, autofocus: true %>
     <%= f.input :first_name,
                 required: true,

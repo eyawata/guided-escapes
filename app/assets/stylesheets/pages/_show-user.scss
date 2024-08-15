@@ -1,0 +1,54 @@
+.avatar-larger {
+  margin: 30px;
+}
+
+.about-card {
+  height: fit-content;
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+
+.user-details {
+}
+
+.user-reviews {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.reviews-container::-webkit-scrollbar {
+  display: none;
+}
+
+.review-card {
+  flex: 0 0 auto;
+  width: 300px;
+  margin-right: 10px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.review-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.review-body {
+  width: 96vh;
+}
+// <span class="text-align-center">No reviews for <%= @user.first_name.capitalize %> yet</span>
