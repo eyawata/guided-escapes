@@ -37,9 +37,18 @@
           <p>Guide</p>
         </div>
         <div class="user-host-show-rating">
-          <p>4.7 </p>
+            <p>
+              <% sum = 0.0 %>
+              <% @reviews.each do |review| %>
+                <% sum += review.rating %>
+              <% end %>
+              <% average = @reviews.size > 0 ? sum / @reviews.size : 0 %>
+              <%= average.round(1) %>
+            </p>
           <div class="stars">
-            &#9733;&#9733;&#9733;&#9733;&#9733;
+            <% average.round.times do %>
+              <i class="fa-solid fa-star"></i>
+            <% end %>
           </div>
         </div>
       </div>
