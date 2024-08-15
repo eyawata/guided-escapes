@@ -4,11 +4,11 @@
     <% end %>
     <div class="d-flex flex-column align-items-center">
       <div class="d-flex flex-row justify-content-center mt-3">
-        <div class="header-item mx-3">About us</div>
-        <div class="header-item mx-3">Catalog</div>
-        <div class="header-item mx-3">Places</div>
-        <div class="header-item mx-3">Blog</div>
-        <div class="header-item mx-3">Contact</div>
+        <%= link_to 'Home', root_path, class: "header-item mx-3 fw-bold", style: "color: #808080; text-decoration: none;" %>
+        <%= link_to 'All Experiences', experiences_path, class: "header-item mx-3 fw-bold", style: "color: #808080; text-decoration: none;" %>
+        <%= link_to 'My Bookings', bookings_path, class: "header-item mx-3 fw-bold", style: "color: #808080; text-decoration: none;" %>
+        <%= link_to 'My Profile', user_path(current_user), class: "mx-3 fw-bold", style: "color: #808080; text-decoration: none;" %>
+        <%= link_to 'Offer your Experience', new_experience_path, class: "header-item mx-3 fw-bold", style: "color: #8356D1; text-decoration: none;" %>
       </div>
       <form class="navbar-form navbar-left mt-3 mb-3 ms-3" action="/action_page.php">
         <div class="input-group">

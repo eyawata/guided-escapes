@@ -10,7 +10,7 @@
 
 .button-center {
   position: absolute;
-  left: 40%;
+  left: 45%;
 }
 
 .lightpurple-btn{
@@ -31,11 +31,12 @@
 .lightred-btn{
   font-size: 14px;
   font-weight: bold;
-  padding: 8px 12px;
+  padding: 8px 0;
   color: $darker-red;
   background-color: $light-red;
   border-color: $light-red;
   border-radius: 5px;
+  width: 80px;
 
   &:hover {
     background-color: $darker-red;
@@ -46,11 +47,12 @@
 .lightgreen-btn{
   font-size: 14px;
   font-weight: bold;
-  padding: 8px 12px;
+  padding: 8px 0;
   color: $darker-green;
   background-color: $light-accepted;
   border-color: $light-green;
   border-radius: 5px;
+  width: 80px;
 
   &:hover {
     background-color: $darker-green;

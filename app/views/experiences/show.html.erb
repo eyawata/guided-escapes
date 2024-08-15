@@ -6,7 +6,7 @@
     <%= link_to 'Back to Experiences', experiences_path, class: "lightpurple-small-btn btn btn-secondary" %>
   </div>
   <div class="experience-images-header">
-    <% if @experience.photos.attached? && @experience.photos.count == 5 %>
+    <% if @experience.photos.count === 5 %>
       <div class="image-grid">
         <% @experience.photos.each_with_index do |photo, index| %>
           <div class="image-grid-item <%= "item#{index + 1}" if index > 0 %> <%= 'main' if index == 0 %>">
@@ -14,8 +14,14 @@
           </div>
         <% end %>
       </div>
+    <% elsif @experience.photos.count === 1 %>
+      <div class="single-image">
+        <%= image_tag @experience.photos.first %>
+      </div>
     <% else %>
-      <%= image_tag 'https://images.pexels.com/photos/20187381/pexels-photo-20187381/free-photo-of-sapporo-fushimi-inari-shrine-in-winter.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' %>
+      <div class="single-image">
+        <%= image_tag 'https://images.pexels.com/photos/20187381/pexels-photo-20187381/free-photo-of-sapporo-fushimi-inari-shrine-in-winter.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' %>
+      </div>
     <% end %>
   </div>
 </div>
