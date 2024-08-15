@@ -1,0 +1,5 @@
+<%= simple_form_for [experience, review] do |f| %>
+  <%= f.input :content, label: "Your Review" %>
+  <%= f.input :rating, label: "Rating", as: :select, collection: 1..5 %>
+  <%= f.submit "Submit Review", class: "btn btn-primary" %>
+<% end %>

@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :experiences, only: [:index, :show, :new, :create] do
     resources :bookings, only: [:create]
+    resources :reviews, only: [:index, :new, :create]
   end
 
-  resources :bookings, only: [:index, :update]
+  resources :reviews, only: [:show, :edit, :update, :destroy]
+  resources :bookings, only: [:index]
 end
