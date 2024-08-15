@@ -1,3 +1,21 @@
+.experience-images-header {
+  margin-top: 5px;
+
+  .single-image {
+    display: block;
+    width: 100%;
+    height: 500px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      display: block;
+    }
+  }
+}
+
 .show-page-body {
   margin-right: 60px;
   margin-left: 60px;
@@ -5,7 +23,7 @@
   margin-bottom: 100px;
 }
 
-.lightpurple-small-btn{
+.lightpurple-small-btn {
   margin-top: 5px;
   font-size: 14px;
   padding: 6px 10px;
@@ -66,13 +84,7 @@
   display: block;
 }
 
-
-.experience-images-header {
-  margin-top: 5px;
- }
-
-
-.experience-details{
+.experience-details {
   border-radius: 20px;
   background-color: $secondary-color;
   margin-right: 10px;
@@ -81,11 +93,11 @@
   padding-top: 15px;
 }
 
-// .epxerience-show-content{
+// .epxerience-show-content {
 
 // }
 
-.booking-form{
+.booking-form {
   background-color: $secondary-color;
   margin-left: 20px;
   border-radius: 20px;
@@ -99,7 +111,7 @@
 }
 
 .booking-form .btn {
-  border: 1px solid rgba(0,0,0,0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   width: 100%;
   border-radius: 10px;
   font-weight: 800;
@@ -110,7 +122,7 @@
 }
 
 .booking-form .btn:hover {
-  border: 1px solid rgba(0,0,0,0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   width: 100%;
   background-color: $primary-color;
   color: $secondary-color;
@@ -136,7 +148,7 @@
 
 #price-num {
   text-align: right;
-  padding-right: 0
+  padding-right: 0;
 }
 
 .duration-row {
@@ -155,7 +167,7 @@
 
 #duration-num {
   text-align: right;
-  padding-right: 0
+  padding-right: 0;
 }
 
 .subtotal {
