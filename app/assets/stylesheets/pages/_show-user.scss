@@ -2,6 +2,11 @@
   margin: 30px;
 }
 
+.review-avatar {
+  width: 10px;
+  border-radius: 50%;
+}
+
 .about-card {
   height: fit-content;
   position: sticky;
@@ -51,4 +56,35 @@
 .review-body {
   width: 96vh;
 }
-// <span class="text-align-center">No reviews for <%= @user.first_name.capitalize %> yet</span>
+
+.user-experiences {
+  width: 60vw;
+}
+
+#guide-tag {
+  font-size: 1.2rem;
+  padding-bottom: 0;
+}
+
+#user-full-name {
+  font-size: 1.9rem;
+}
+
+.user-details {
+  position: sticky;
+}
+
+.about-card i {
+  font-size: 250%;
+  margin: 20px auto 20px;
+  color: $primary-color;
+}
+
+.about-card h3 {
+  font-weight: 700;
+  color: rgb(41, 41, 47)
+}
+
+.guide-icon-grid p {
+  color:rgba(0,0,0,0.5);
+}

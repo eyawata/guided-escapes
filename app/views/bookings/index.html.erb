@@ -19,8 +19,12 @@
                   <p> Guide: <%= booking.experience.user.first_name %></p>
                 </div>
                 <div class="info-right">
-                  <div class="status-<%= booking.status %>"><p><strong><%= booking.status.capitalize %></strong></p></div>
-                  <div class="product-price"><p><strong><%= number_to_currency(booking.experience.price, precision: 0) %></strong></p></div>
+                  <div class="status-<%= booking.status %>">
+                    <p><strong><%= booking.status.capitalize %></strong></p>
+                  </div>
+                  <div class="product-price">
+                    <p><strong><%= number_to_currency(booking.experience.price, precision: 0) %></strong></p>
+                  </div>
                 </div>
               </div>
               <%= link_to '', experience_path(booking.experience), class:"card-product-link" %>
@@ -33,29 +37,27 @@
         You do not have any bookings
       </div>
     <% end %>
-
     <%# recived bookings section start here%>
-
     <% if @received_bookings.any? %>
       <div class="row justify-content-center">
         <div class="col-7">
           <h1 class="my-3">Received Bookings</h1>
           <% @received_bookings.each do |received_booking| %>
             <div class="card-product my-3">
-              <%= image_tag received_booking.experience.photo_url %>
+              <%= cl_image_tag received_booking.experience.photos.first.key %>
               <div class="card-product-infos position-relative">
                 <h2><strong><%= received_booking.experience.title %></strong></h2>
                 <p><i class="fa-solid fa-calendar-days"></i> <%= received_booking.date %></p>
                 <p><i class="fa-solid fa-clock"></i> <%= received_booking.experience.duration %></p>
                 <p><strong>Status:</strong> <%= received_booking.status.capitalize %></p>
                 <%# added accept/reject buttons %>
-                  <div class="info-right position-absolute">
-                    <% if received_booking.status == "pending" %>
-                      <%= render "bookings/accept_reject", received_booking: received_booking %>
-                    <% else %>
-                      <p class="mt-4"><strong>This booking has been "<%= received_booking.status %>"</strong></p>
-                    <% end %>
-                  </div>
+                <div class="info-right position-absolute">
+                  <% if received_booking.status == "pending" %>
+                    <%= render "bookings/accept_reject", received_booking: received_booking %>
+                  <% else %>
+                    <p class="mt-4"><strong>This booking has been "<%= received_booking.status %>"</strong></p>
+                  <% end %>
+                </div>
                 <%# End of button form  %>
               </div>
             </div>

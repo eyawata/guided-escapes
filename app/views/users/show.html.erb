@@ -1,14 +1,41 @@
 <div class="review-body container-fluid ms-4">
-  <h1>About <%= @user.first_name.capitalize %></h1>
+  <h1>All About <%= @user.first_name.capitalize %></h1>
   <div class="row">
     <div class="col-3 justify-content-evenly">
       <div class="user-details">
-        <div class="about-card">
+        <div class="about-card d-flex align-items-center flex-column">
           <% if current_user.avatar.attached? %>
             <%= image_tag current_user.avatar, class:"avatar-larger" %>
           <% else %>
-            <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar-larger"%>
+            <%= image_tag 'https://res.cloudinary.com/djqladxhq/image/upload/v1723730530/x17umayb2am44f33ixtt.png', class:"avatar-larger" %>
           <% end %>
+          <h3 id="user-full-name"><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h3>
+          <p class="badge text-bg-light" id="guide-tag">Guide</p>
+          <p class="my-3">Speaks <strong>English</strong>, <strong>Mandarin</strong>, <strong>Japanese</strong></p>
+          <div class="guide-icon-grid row justify-content-evenly w-100">
+            <div class="col d-flex flex-column align-items-center guide-icon">
+              <i class="fa-solid fa-bullhorn"></i>
+              <h3><%= @user.reviews.count %></h3>
+              <p>Reviews</p>
+            </div>
+            <div class="col d-flex flex-column align-items-center ">
+              <i class="fa-solid fa-star"></i>
+              <h3>
+                <% sum = 0.0 %>
+                <% @user.reviews.each do |review| %>
+                  <% sum += review.rating %>
+                <% end %>
+                <% average = @user.reviews.size > 0 ? sum / @user.reviews.size : 0 %>
+                <%= average.round(1) %>
+              </h3>
+              <p>Rating</p>
+            </div>
+            <div class="col d-flex flex-column align-items-center">
+              <i class="fa-solid fa-location-dot"></i>
+              <h3><%= @user.experiences.count %></h3>
+              <p>Experiences</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -18,37 +45,22 @@
         <% if @user.reviews.count > 0 %>
           <% @user.reviews.each do |review| %>
             <div class="review-card">
-              <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar"%>
-              <p><%= review.rating %> stars</p>
+              <div class="review-row d-flex justify-content-between align-items-center mb-4">
+                <div class="reviewer d-flex justify-content-start gap-3 align-items-center">
+                  <%= image_tag 'https://res.cloudinary.com/djqladxhq/image/upload/v1723730530/x17umayb2am44f33ixtt.png', class:"avatar" %>
+                  <p class="mb-0 me-3"><%= review.user.first_name %></p>
+                </div>
+                <p class="mb-0 me-3">
+                  <% review.rating.round.times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                </p>
+              </div>
               <p><%= review.content %></p>
             </div>
           <% end %>
         <% else %>
-          <div class="review-card">
-            <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar"%>
-            <p>May 2024</p>
-            <p>It was really fun with Jane Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </div>
-          <div class="review-card">
-            <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar"%>
-            <p>May 2024</p>
-            <p class="review-text">It was really fun with Jane Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, quaerat ducimus. Minima hic dolores neque assumenda esse? Laborum, temporibus quaerat cum qui praesentium natus quas eos alias iure id quidem.</p>
-          </div>
-          <div class="review-card">
-            <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar"%>
-            <p>May 2024</p>
-            <p>It was really fun with Jane Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </div>
-          <div class="review-card">
-            <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar"%>
-            <p>May 2024</p>
-            <p>It was really fun with Jane Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </div>
-          <div class="review-card">
-            <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar"%>
-            <p>May 2024</p>
-            <p>It was really fun with Jane Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </div>
+          <span class="text-align-center">No reviews for <%= @user.first_name.capitalize %> yet</span>
         <% end %>
       </div>
       <h3 class="mt-3">Browse <%= @user.first_name.capitalize %>'s Experiences</h3>
