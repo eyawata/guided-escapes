@@ -18,13 +18,13 @@
   font-size: 17px;
   font-weight: bold;
   padding: 8px 12px;
-  color: $primary-color;
-  background-color: $secondary-color ;
-  border-color: $secondary-color;
+  color: $primary-color !important;
+  background-color: $secondary-color !important;
+  border-color: $secondary-color !important;
 
   &:hover {
-    background-color: $primary-color;
-    color: $secondary-color;
+    background-color: $primary-color !important;
+    color: $secondary-color !important;
   }
 }
 
