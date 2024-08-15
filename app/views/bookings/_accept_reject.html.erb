@@ -1,0 +1,11 @@
+<div class="d-flex">
+  <%= simple_form_for received_booking do |f| %>
+    <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+    <%= f.submit 'Accept', class: 'lightgreen-btn me-2' %>
+  <% end %>
+
+  <%= simple_form_for received_booking do |f| %>
+    <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+    <%= f.submit 'Reject', class:'lightred-btn' %>
+  <% end %>
+</div>

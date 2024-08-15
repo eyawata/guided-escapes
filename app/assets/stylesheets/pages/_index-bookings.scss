@@ -5,7 +5,6 @@
 
 .booking-container {
   width: 1100px;
-  border-color: green;
   align-items: center;
 }
 
@@ -27,4 +26,71 @@
     background-color: $primary-color;
     color: $secondary-color;
   }
+}
+
+.lightred-btn{
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 12px;
+  color: $darker-red;
+  background-color: $light-red;
+  border-color: $light-red;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: $darker-red;
+    color: $light-red;
+  }
+}
+
+.lightgreen-btn{
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 12px;
+  color: $darker-green;
+  background-color: $light-accepted;
+  border-color: $light-green;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: $darker-green;
+    color: $light-green;
+  }
+}
+
+.status-rejected {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 100px;
+  text-align: center;
+  color: $darker-red;
+  background-color: $light-red;
+  border-radius: 5px;
+}
+
+.status-accepted {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 100px;
+  text-align: center;
+  color: $accepted;
+  background-color: $light-accepted;
+  border-radius: 5px;
+}
+
+.status-pending {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 100px;
+  text-align: center;
+  color: $primary-color;
+  background-color: $secondary-color;
+  border-radius: 5px;
+}
+
+.product-price p {
+  font-size: 20px;
+  color: black;
+  margin-top: 20px;
+  margin-right: 10px;
 }
