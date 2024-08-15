@@ -49,7 +49,23 @@ experiences = [
 
 ]
 
+# Fake reviews
+reviews = [
+  "The tour was amazing! Our guide was knowledgeable and friendly. Highly recommend!",
+  "Had a fantastic time. The itinerary was well-planned and the sights were breathtaking.",
+  "Great experience! The guide made sure everyone was comfortable and engaged.",
+  "Loved every moment of the tour. The guide's stories were fascinating.",
+  "A wonderful tour with beautiful scenery. The guide was very attentive and informative.",
+  "The tour exceeded my expectations. The guide was excellent and the group was fun.",
+  "An unforgettable experience. The guide was professional and the tour was well-organized.",
+  "Enjoyed every part of the tour. The guide was friendly and the locations were stunning.",
+  "Fantastic tour! The guide was knowledgeable and the pace was perfect.",
+  "A great way to see the city. The guide was engaging and the tour was very enjoyable."
+]
+
 # create two users - guide and traveller
+
+puts "Creating users!"
 
 10.times do
   User.create!(
@@ -60,7 +76,8 @@ experiences = [
   )
 end
 
-puts "Creating experience!"
+puts "Created #{User.count} users!"
+puts "Creating experiences!"
 
 experiences.each do |experience|
   exp = Experience.create!(
@@ -79,7 +96,9 @@ experiences.each do |experience|
     exp.photos.attach(io: file, filename: "#{experience[:title].parameterize}-#{index + 1}.jpeg", content_type: 'image/jpeg')
   end
 end
-puts "Seed data created!"
+
+puts "Created #{Experience.count} experiences!"
+puts "Creating bookings!"
 
 10.times do
   Booking.create!(
@@ -87,7 +106,20 @@ puts "Seed data created!"
     user: User.all.sample,
     date: Date.today,
     status: rand(1..3) # needs to be at least 6 characters
-  )
+    )
 end
 
 puts "Created #{Booking.count} bookings!"
+puts "Creating reviews!"
+
+30.times do
+  experience = Experience.all.sample
+  Review.create!(
+    experience: experience,
+    user: User.where.not(id: experience.user).sample,
+    content: reviews.sample,
+    rating: rand(1..5),
+    )
+end
+
+puts "Created #{Review.count} reviews!"

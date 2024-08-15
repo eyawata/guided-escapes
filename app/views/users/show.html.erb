@@ -15,8 +15,8 @@
     <div class="user-rev-exp col-9">
       <h3><%= @user.first_name.capitalize %>'s Reviews</h3>
       <div class="user-reviews">
-        <% if @reviews.count > 0 %>
-          <% @reviews.each do |review| %>
+        <% if @user.reviews.count > 0 %>
+          <% @user.reviews.each do |review| %>
             <div class="review-card">
               <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar"%>
               <p><%= review.rating %> stars</p>
@@ -66,7 +66,7 @@
                 <p><i class="fa-solid fa-clock"></i> <%= experience.duration %> hours</p>
               </div>
             </div>
-            <%= link_to '', experience_path(booking.experience), class:"card-product-link" %>
+            <%= link_to '', experience_path(experience), class:"card-product-link" %>
           </div>
         <% end %>
       </div>
