@@ -5,14 +5,14 @@
   </div>
   <div class="themed-form">
     <%= simple_form_for @experience do |f| %>
-      <%= f.input :location, input_html: { data: { target: 'map.locationInput' } } %>
+      <%= f.input :location, input_html: { id: "location-input", data: { target: 'locationInput' } } %>
       <div id="map" data-controller="map-experience" style="height: 300px; margin-bottom: 20px;"></div>
       <%= f.input :title %>
       <%= f.input :content %>
       <%= f.input :duration %>
       <%= f.input :price %>
       <%= f.input :photos, as: :file, input_html: {multiple: true } %>
-      <%= f.submit %>
+      <%= f.submit class: "lightpurple-small-btn round-corners" %>
     <% end %>
   </div>
 </div>

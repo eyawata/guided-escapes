@@ -26,7 +26,7 @@ class ExperiencesController < ApplicationController
     if @experience.save
       redirect_to @experience, notice: 'Experience was successfully created.'
     else
-      render "#", status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 

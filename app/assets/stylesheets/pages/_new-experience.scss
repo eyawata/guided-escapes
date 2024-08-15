@@ -14,7 +14,7 @@
   border-radius: 20px;
   background-color: $secondary-color;
   width: 650px;
-  height: 1050px;
+  height: 950px;
   margin-top: 30px;
   margin-bottom: 150px;
   margin-left: auto;
@@ -22,4 +22,8 @@
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 15px;
+}
+
+.round-corners{
+  border-radius: 8px;
 }
