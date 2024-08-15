@@ -1,0 +1,56 @@
+<div class="review-body container-fluid ms-4">
+  <h1>About <%= @user.first_name.capitalize %></h1>
+  <div class="row">
+    <div class="col-3 justify-content-evenly">
+      <div class="user-details">
+        <div class="about-card">
+          <% if current_user.avatar.attached? %>
+            <%= image_tag current_user.avatar, class:"avatar-larger" %>
+          <% else %>
+            <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar-larger"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="user-rev-exp col-9">
+      <h3><%= @user.first_name.capitalize %>'s Reviews</h3>
+      <div class="user-reviews">
+        <% if @reviews.count > 0 %>
+          <% @reviews.each do |review| %>
+            <div class="review-card">
+              <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar"%>
+              <p><%= review.rating %> stars</p>
+              <p><%= review.content %></p>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="review-card">
+            <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar"%>
+            <p>May 2024</p>
+            <p>It was really fun with Jane Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+          <div class="review-card">
+            <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar"%>
+            <p>May 2024</p>
+            <p class="review-text">It was really fun with Jane Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, quaerat ducimus. Minima hic dolores neque assumenda esse? Laborum, temporibus quaerat cum qui praesentium natus quas eos alias iure id quidem.</p>
+          </div>
+          <div class="review-card">
+            <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar"%>
+            <p>May 2024</p>
+            <p>It was really fun with Jane Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+          <div class="review-card">
+            <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar"%>
+            <p>May 2024</p>
+            <p>It was really fun with Jane Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+          <div class="review-card">
+            <%= image_tag 'https://avatars.githubusercontent.com/u/157731956?v=4', class:"avatar"%>
+            <p>May 2024</p>
+            <p>It was really fun with Jane Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
