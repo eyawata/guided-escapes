@@ -2,7 +2,13 @@ class ExperiencesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @experiences = Experience.all
+    if params[:query].present?
+      @experiences = Experience.search_by_title_and_content(params[:query])
+    else
+      @experiences = Experience.all
+    end
+
+
     @markers = @experiences.geocoded.map do |experience|
       {
         lat: experience.latitude,
