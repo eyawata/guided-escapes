@@ -15,7 +15,6 @@
   </div>
 </div>
 <div class="cards-container">
-  <div class="cards-container">
      <% if @experiences.any? %>
         <% @experiences.each do |experience| %>
           <div class="card-experience">
@@ -34,19 +33,24 @@
             </div>
             <%= link_to '', experience_path(experience), class: 'card-experience-link position-absolute' %>
           </div>
-        <% end %>
-        <% else %>
-          <em>Sorry, no experiences found.</em>
+          <div class="card-content">
+            <h5 class="card-title mt-1"><%= experience.title %></h5>
+            <p class="card-text-details"><%= experience.content %></p>
+            <p class="hosted-by"><%= experience.user.first_name %></p>
+            <p class="price"><%= experience.price.round %> USD</p>
+          </div>
+          <%= link_to '', experience_path(experience), class: 'card-experience-link position-absolute' %>
+        </div>
       <% end %>
-
+    <% else %>
+      <em>Sorry, no experiences found.</em>
+    <% end %>
   </div>
   <%# adding map %>
-
   <button type="button" class="map-button lightpurple-btn mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Explore Map <i class="fa-regular fa-map"></i>
   </button>
-
-<!-- Modal -->
+  <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
