@@ -37,20 +37,20 @@
     <div class="experience-show-user">
       <h3 class="h3-show">About your guide</h3>
       <div class="user-host-pill grid-item">
-        <img src="https://avatars.githubusercontent.com/u/74129604?v=4" alt="User Photo" class="user-host-show-photo">
+        <%= cl_image_tag @experience.user.avatar.key, class: "user-host-show-photo" %>
         <div class="user-info">
           <h3><%= @experience.user.first_name %></h3>
           <p>Guide</p>
         </div>
         <div class="user-host-show-rating">
-            <p>
-              <% sum = 0.0 %>
-              <% @reviews.each do |review| %>
-                <% sum += review.rating %>
-              <% end %>
-              <% average = @reviews.size > 0 ? sum / @reviews.size : 0 %>
-              <%= average.round(1) %>
-            </p>
+          <p>
+            <% sum = 0.0 %>
+            <% @reviews.each do |review| %>
+              <% sum += review.rating %>
+            <% end %>
+            <% average = @reviews.size > 0 ? sum / @reviews.size : 0 %>
+            <%= average.round(1) %>
+          </p>
           <div class="stars">
             <% average.round.times do %>
               <i class="fa-solid fa-star"></i>
@@ -76,34 +76,31 @@
       <div>
         <p><%= @experience.content %></p>
       </div>
-        <div data-controller="review">
-            <%= link_to 'Add a review', '#', class: "lightpurple-small-btn btn btn-secondary mb-3", data: { action: "click->review#fire" } %>
-            <div data-review-target="togglableElement" class="d-none">
-               <%= render "experiences/review_form", experience: @experience, review: @review %>
-            </div>
-       </div>
-    </div>
-
-    <div class="container mt-3 h3-show">
-         <h2>Reviews</h2>
-    <% @reviews.each do |review| %>
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-text">Reviewer: <%= review.user.first_name %></h5>
-            <h5 class="card-title"> <% review.rating.round.times do %>
-              <i class="fa-solid fa-star"></i>
-
-            <% end %>
-            </h5>
-            <p class="card-text"><%= review.content %></p>
-          </div>
+      <div data-controller="review">
+        <%= link_to 'Add a review', '#', class: "lightpurple-small-btn btn btn-secondary mb-3", data: { action: "click->review#fire" } %>
+        <div data-review-target="togglableElement" class="d-none">
+          <%= render "experiences/review_form", experience: @experience, review: @review %>
         </div>
       </div>
-    <% end %>
+    </div>
+    <div class="container mt-3 h3-show">
+      <h2>Reviews</h2>
+      <% @reviews.each do |review| %>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-text">Reviewer: <%= review.user.first_name %></h5>
+              <h5 class="card-title"> <% review.rating.round.times do %>
+                  <i class="fa-solid fa-star"></i>
+                <% end %>
+              </h5>
+              <p class="card-text"><%= review.content %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
-
   <div class="booking-form">
     <h3 class="my-3">Pick your Date</h3>
     <%= simple_form_for [@experience, @booking] do |f| %>
@@ -129,9 +126,6 @@
         <%= f.submit 'Book Now', class: 'btn mt-2 btn-primary' %>
       </div>
     <% end %>
-
-
-
   </div>
 </div>
 </div>
