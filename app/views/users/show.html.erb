@@ -10,8 +10,13 @@
             <%= image_tag 'https://res.cloudinary.com/djqladxhq/image/upload/v1723730530/x17umayb2am44f33ixtt.png', class:"avatar-larger" %>
           <% end %>
           <h3 id="user-full-name"><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h3>
-          <p class="badge text-bg-light" id="guide-tag">Guide</p>
-          <p class="my-3">Speaks <strong>English</strong>, <strong>Mandarin</strong>, <strong>Japanese</strong></p>
+          <% if @user.experiences.count > 0 %>
+            <p class="badge text-bg-light" id="guide-tag">Guide</p>
+            <p class="my-3">Speaks <strong>English</strong>, <strong>Mandarin</strong>, <strong>Japanese</strong></p>
+          <% else %>
+            <p class="badge text-bg-light" id="guide-tag">Traveller</p>
+            <p class="my-3">Joined on <%= @user.created_at.strftime("%m/%d/%Y") %></p>
+          <% end %>
           <div class="guide-icon-grid row justify-content-evenly w-100">
             <div class="col d-flex flex-column align-items-center guide-icon">
               <i class="fa-solid fa-bullhorn"></i>
