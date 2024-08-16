@@ -1,3 +1,8 @@
-<h2><%= experience.title %></h2>
-<p><%= experience.address %></p>
-<%= cl_image_tag experience.photos.first.key %>
+<% if experience.photos.attached? %>
+  <%= cl_image_tag experience.photos.to_a.first.key, class: 'card-image-map' %>
+<% else %>
+  <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU', class: 'card-image' %>
+<% end %>
+<h5 class="my-3"><%= experience.title %></h5>
+<p><i class="fa-solid fa-location-dot"></i> <%= experience.location %></p>
+<p><i class="fa-solid fa-clock"></i> <%= experience.duration %> hours</p>

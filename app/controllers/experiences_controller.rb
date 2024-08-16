@@ -6,7 +6,8 @@ class ExperiencesController < ApplicationController
     @markers = @experiences.geocoded.map do |experience|
       {
         lat: experience.latitude,
-        lng: experience.longitude
+        lng: experience.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { experience: experience })
       }
     end
   end
