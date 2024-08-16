@@ -1,9 +1,17 @@
 <div class="container mt-4 mb-4 ">
   <div class="d-flex justify-content-center">
+  <%= link_to experiences_path(query: 'natur') do %>
     <div class="header-item mx-3"><i class="fa-solid fa-mountain-sun fa-xl" style="color: #8356D1;"></i></div>
+  <% end %>
+   <%= link_to experiences_path(query: 'beach') do %>
     <div class="header-item mx-3"><i class="fa-solid fa-umbrella-beach fa-xl" style="color: #8356D1;"></i></div>
+  <% end %>
+  <%= link_to experiences_path(query: 'izakaya') do %>
     <div class="header-item mx-3"><i class="fa-solid fa-martini-glass-citrus fa-xl" style="color: #8356D1;"></i></div>
-    <div class="header-item mx-3"><i class="fa-solid fa-dungeon fa-xl" style="color:#8356D1;"></i></div>
+  <% end %>
+  <%= link_to experiences_path(query: 'temple') do %>
+    <div class="header-item mx-3"><i class="fa-solid fa-landmark fa-xl" style="color:#8356D1;"></i></div>
+  <% end %>
   </div>
 </div>
 <div class="cards-container">
