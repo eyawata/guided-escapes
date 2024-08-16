@@ -4,7 +4,7 @@
     <div class="col-3 justify-content-evenly">
       <div class="user-details">
         <div class="about-card d-flex align-items-center flex-column">
-          <% if current_user.avatar.attached? %>
+          <% if @user.avatar.attached? %>
             <%= image_tag current_user.avatar, class:"avatar-larger" %>
           <% else %>
             <%= image_tag 'https://res.cloudinary.com/djqladxhq/image/upload/v1723730530/x17umayb2am44f33ixtt.png', class:"avatar-larger" %>
@@ -36,6 +36,8 @@
               <p>Experiences</p>
             </div>
           </div>
+          <hr>
+          <p class="guide-intro mx-5"><%= @user.guide_intro %></p>
         </div>
       </div>
     </div>

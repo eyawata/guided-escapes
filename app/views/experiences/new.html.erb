@@ -3,10 +3,10 @@
     <h1 class="primary-text-color">Create your experience on Guided Experiences</h1>
     <h2>Share your favorite local Experiences and host likeminded people from all around the globe</h2>
   </div>
-  <div class="themed-form">
+  <div class="themed-form" data-controller="map-experience">
     <%= simple_form_for @experience do |f| %>
-      <%= f.input :location, input_html: { id: "location-input", data: { target: 'locationInput' } } %>
-      <div id="map" data-controller="map-experience" style="height: 300px; margin-bottom: 20px;"></div>
+      <%= f.input :location, input_html: { id: "location-input", data: { map_experience_target: 'locationInput' } } %>
+      <div id="map" data-map-experience-target="map" style="height: 300px; margin-bottom: 20px;"></div>
       <%= f.input :title %>
       <%= f.input :content %>
       <%= f.input :duration %>
