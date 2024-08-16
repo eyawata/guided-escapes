@@ -13,16 +13,21 @@
         <% end %>
         <%= link_to 'Offer your Experience', new_experience_path, class: "header-item mx-3 fw-bold", style: "color: #8356D1; text-decoration: none;" %>
       </div>
-      <form class="navbar-form navbar-left mt-3 mb-3 ms-3" action="/action_page.php">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search">
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>
+
+    <div class=" d-flex row justify-content-center mt-3 mb-3">
+    <%= form_with url: experiences_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a keyword"
+        %>
+        <button ><i class="fas fa-search no-border-radius"style="color: #8356D1"></i></button>
+
+    <% end %>
+
+
+
+</div>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

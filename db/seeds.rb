@@ -63,6 +63,31 @@ reviews = [
   "A great way to see the city. The guide was engaging and the tour was very enjoyable."
 ]
 
+# Fake guide intros
+guide_intros = [
+  "Passionate about sharing the hidden gems of our city, I bring history and culture to life on every experience.",
+  "With over 10 years of sharing my city to visitors, I ensure each experience is an unforgettable adventure filled with fascinating stories.",
+  "As a local expert, I love showcasing the unique charm and beauty of our region to visitors from around the world.",
+  "Join me for an engaging and informative journey through our city's most iconic landmarks and secret spots.",
+  "Dedicated to paying homage to my roots, I blend historical facts with captivating anecdotes.",
+  "I specialize in creating personalized experiences that cater to your interests, making each visit truly special.",
+  "With a background in history and a passion for storytelling, I make every experience both educational and entertaining.",
+  "Explore the city with me and discover its rich heritage, vibrant culture, and stunning architecture.",
+  "I take pride in offering experiences that are not only informative but also fun and interactive for all ages.",
+  "Let me guide you through an immersive experience that highlights the best our city has to offer.",
+  "As a seasoned guide, I aim to make each experience a memorable and enriching experience for all my guests.",
+  "My experiences are designed to be immersive and engaging, offering a deep dive into the local culture and history.",
+  "With a passion for travel and storytelling, I bring a unique perspective to every experience I lead.",
+  "I love meeting new people and sharing the fascinating stories and hidden gems of our city.",
+  "Join me for a experience that combines historical insights with fun facts and local anecdotes.",
+  "I strive to create a welcoming and enjoyable atmosphere on all my experiences, ensuring everyone has a great time.",
+  "With a background in archaeology, I offer a unique and informed perspective on our city's ancient sites.",
+  "My goal is to provide an unforgettable experience that leaves you with lasting memories.",
+  "I take pride in offering experiences that are both informative and entertaining, tailored to your interests.",
+  "Let me show you the best our city has to offer, from iconic landmarks to hidden treasures."
+]
+
+
 # create two users - guide and traveller
 
 puts "Creating users!"
@@ -112,14 +137,30 @@ end
 puts "Created #{Booking.count} bookings!"
 puts "Creating reviews!"
 
-30.times do
+20.times do
   experience = Experience.all.sample
   Review.create!(
     experience: experience,
     user: User.where.not(id: experience.user).sample,
     content: reviews.sample,
-    rating: rand(1..5),
+    rating: rand(3..5),
     )
 end
 
 puts "Created #{Review.count} reviews!"
+
+puts "Creating guide intros!"
+
+# Selecting only users providing at least one experience
+guide_users = User.joins(:experiences).group('users.id').having('COUNT(experiences.id) > 0')
+
+# giving each of the guides an intro statement
+
+guide_users.each do |guide|
+  guide.guide_intro = guide_intros.sample
+  guide.save!
+end
+
+puts "Guide intros created for #{guide_users.to_a.count} users with experiences!"
+
+puts "FYI: #{guide_users.to_a.count} out of #{User.count} users are guides."
