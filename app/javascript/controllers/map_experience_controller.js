@@ -13,8 +13,13 @@ export default class extends Controller {
       center: [139.70822, 35.63392],
       zoom: 13
     });
+    this.currentMarker = null;
     this.map.on("click", (event) => {
       // alert(`Coords: ${event.lngLat}`);
+      let markerLng = event.lngLat.lng;
+      let markerLat = event.lngLat.lat;
+      this.#addMarkersToMap(markerLng, markerLat);
+
       const url = `https://api.mapbox.com/search/geocode/v6/reverse?longitude=${event.lngLat.lng}&latitude=${event.lngLat.lat}&access_token=${mapboxgl.accessToken}`;
       fetch(url)
       .then(r => r.json())
@@ -26,5 +31,16 @@ export default class extends Controller {
         // console.log(this.locationInputTarget)
       })
     });
+  }
+   #addMarkersToMap(markerLng, markerLat) {
+    // Remove the existing marker if it exists
+    if (this.currentMarker) {
+      this.currentMarker.remove();
+    }
+
+    // Create a new marker and add it to the map
+    this.currentMarker = new mapboxgl.Marker()
+      .setLngLat([markerLng, markerLat])  // Coordinates as an array
+      .addTo(this.map);
   }
 }
