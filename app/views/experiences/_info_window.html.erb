@@ -4,5 +4,5 @@
   <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU', class: 'card-image' %>
 <% end %>
 <h5 class="my-3"><%= experience.title %></h5>
-<p><i class="fa-solid fa-location-dot"></i> <%= experience.location %></p>
+<p><i class="fa-solid fa-location-dot"></i> <%= experience.location.capitalize %></p>
 <p><i class="fa-solid fa-clock"></i> <%= experience.duration %> hours</p>
