@@ -2,11 +2,17 @@ import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl';
 
 export default class extends Controller {
+  static values = {
+    apiKey: String,
+    markers: Array
+  }
   static targets = ["locationInput", "map"]
 
   connect() {
     console.log ("connected")
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZGVzZXJ0Zm94MTE3IiwiYSI6ImNseXpncXJ1cjIxNmcyanNobTk4ZW56bWwifQ.AOS84lXV36dmxBAzW2dMLw';
+    mapboxgl.accessToken = "pk.eyJ1IjoiZGVzZXJ0Zm94MTE3IiwiYSI6ImNseXpncXJ1cjIxNmcyanNobTk4ZW56bWwifQ.AOS84lXV36dmxBAzW2dMLw"
+    console.log(this)
+    console.log(this.apiKeyValue)
     this.map = new mapboxgl.Map({
       container: this.mapTarget,
       style: 'mapbox://styles/mapbox/streets-v12',
