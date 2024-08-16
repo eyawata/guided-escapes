@@ -8,7 +8,6 @@ class ExperiencesController < ApplicationController
       @experiences = Experience.all
     end
 
-
     @markers = @experiences.geocoded.map do |experience|
       {
         lat: experience.latitude,
