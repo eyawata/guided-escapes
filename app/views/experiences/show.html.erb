@@ -37,7 +37,7 @@
     <div class="experience-show-user">
       <h3 class="h3-show">About your guide</h3>
       <div class="user-host-pill grid-item">
-        <img src="https://avatars.githubusercontent.com/u/74129604?v=4" alt="User Photo" class="user-host-show-photo">
+        <%= cl_image_tag @experience.user.avatar.key, class: "user-host-show-photo" %>
         <div class="user-info">
           <h3><%= @experience.user.first_name %></h3>
           <p>Guide</p>

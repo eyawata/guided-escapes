@@ -17,6 +17,19 @@ Booking.destroy_all
 Experience.destroy_all
 User.destroy_all
 
+user_image_url = [
+  "https://avatars.githubusercontent.com/u/25542223?v=4",
+  "https://avatars.githubusercontent.com/u/26819547?v=4",
+  "https://avatars.githubusercontent.com/u/34345789?v=4",
+  "https://avatars.githubusercontent.com/u/16535142?v=4",
+  "https://avatars.githubusercontent.com/u/89939139?v=4",
+  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-wixmp-ed30a86b8c4ca887773594c2.wixmp.com%2Ff%2F994c107a-87fe-4437-9c27-7f5173301252%2Fd2ti219-eacba25e-59dd-4268-bd47-7decfe7b1772.jpg%2Fv1%2Ffill%2Fw_900%2Ch_831%2Cq_75%2Cstrp%2Fmaster_chief__halo_3_by_zippy5454_d2ti219-fullview.jpg%3Ftoken%3DeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODMxIiwicGF0aCI6IlwvZlwvOTk0YzEwN2EtODdmZS00NDM3LTljMjctN2Y1MTczMzAxMjUyXC9kMnRpMjE5LWVhY2JhMjVlLTU5ZGQtNDI2OC1iZDQ3LTdkZWNmZTdiMTc3Mi5qcGciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.ghnoaQFh2OgUlu8Tg_MqCNDZEvi5X3S_6Z1SEKSbyds&f=1&nofb=1&ipt=22de073f024d6dfec9444779ff73e047916b643fc296b64463e60a856fb995c3&ipo=images",
+  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.1wZeqVjYf8B04zM5E-STwQHaHa%26pid%3DApi&f=1&ipt=fda9d8a05506a8bd06fc4f4dc4afc3a13e1aa8bc4d3600663bab397873288aaa&ipo=images",
+  "https://i.pinimg.com/564x/a7/5d/62/a75d62adddc8397c7820df76d8d05a30.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5PjBOJHAm1xl8yejd9mAb20XetMXbioYJiQ&s",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRASpHWfCT6Qibm_JYlK6Pp_2ergXeRFCLMIA&s",
+]
+
 # Real image URLs
 image_url = {
   "Tokyo Sakura Festival" => [
@@ -87,19 +100,21 @@ guide_intros = [
   "Let me show you the best our city has to offer, from iconic landmarks to hidden treasures."
 ]
 
-
 # create two users - guide and traveller
 
 puts "Creating users!"
 
-10.times do
-  User.create!(
+10.times do |index|
+  user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: '123123' # needs to be at least 6 characters
   )
+  file = URI.open(user_image_url[index])
+  user.avatar.attach(io: file, filename: "user-#{index + 1}.jpeg", content_type: 'image/jpeg')
 end
+
 
 puts "Created #{User.count} users!"
 puts "Creating experiences!"

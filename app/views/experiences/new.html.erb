@@ -6,7 +6,8 @@
   <div class="themed-form" data-controller="map-experience">
     <%= simple_form_for @experience do |f| %>
       <%= f.input :location, input_html: { id: "location-input", data: { map_experience_target: 'locationInput' } } %>
-      <div id="map" data-map-experience-target="map" style="height: 300px; margin-bottom: 20px;"></div>
+      <div data-map-experience-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+       id="map" data-map-experience-target="map" style="height: 300px; margin-bottom: 20px;"></div>
       <%= f.input :title %>
       <%= f.input :content %>
       <%= f.input :duration %>
