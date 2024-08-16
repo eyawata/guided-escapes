@@ -31,7 +31,7 @@
     <h1><%= @experience.title %></h1>
     <ul style="list-style-type: none; display: flex; gap: 10px;">
       <li><%=@experience.location%> • </li>
-      <li><%=@experience.duration%>Days Duration • </li>
+      <li><%=@experience.duration%>Hours Duration • </li>
       <li>Experience Tag</li>
     </ul>
     <div class="experience-show-user">
@@ -49,7 +49,7 @@
               <% sum += review.rating %>
             <% end %>
             <% average = @reviews.size > 0 ? sum / @reviews.size : 0 %>
-            <%= average.round(1) %>
+            <%= average > 0 ? average.round(1) : "No ratings yet"%>
           </p>
           <div class="stars">
             <% average.round.times do %>
