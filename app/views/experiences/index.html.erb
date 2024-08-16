@@ -8,26 +8,6 @@
 </div>
 <div class="cards-container">
   <div class="cards-container">
-<<<<<<< HEAD
-    <% @experiences.each do |experience| %>
-      <div class="card-experience">
-        <div class="image-container">
-          <% if experience.photos.attached? %>
-            <%= cl_image_tag experience.photos.to_a.first.key, class: 'card-image' %>
-          <% else %>
-            <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU', class: 'card-image' %>
-          <% end %>
-        </div>
-        <div class="card-content">
-          <h5 class="card-title mt-1"><%= experience.title %></h5>
-          <p class="card-text-details"><%= experience.content %></p>
-          <p class="hosted-by"><%= experience.user.first_name %></p>
-          <p class="price"><%= number_to_currency(experience.price.round, precision: 0) %></p>
-        </div>
-        <%= link_to '', experience_path(experience), class: 'card-experience-link position-absolute' %>
-      </div>
-    <% end %>
-=======
      <% if @experiences.any? %>
         <% @experiences.each do |experience| %>
           <div class="card-experience">
@@ -42,37 +22,35 @@
               <h5 class="card-title mt-1"><%= experience.title %></h5>
               <p class="card-text-details"><%= experience.content %></p>
               <p class="hosted-by"><%= experience.user.first_name %></p>
-              <p class="price"><%= experience.price.round %> USD</p>
-            </div>
-            <%= link_to '', experience_path(experience), class: 'card-experience-link position-absolute' %>
-          </div>
-        <% end %>
+              <p class="price"><%= number_to_currency(experience.price.round, precision: 0) %>  </p>
+              </div>
+                <%= link_to '', experience_path(experience), class: 'card-experience-link position-absolute' %>
+              </div>
+            <% end %>
         <% else %>
           <em>Sorry, no experiences found.</em>
-      <% end %>
->>>>>>> master
+        <% end %>
   </div>
   <%# adding map %>
+    <button type="button" class="map-button lightpurple-btn mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Explore Map <i class="fa-regular fa-map"></i>
+    </button>
 
-  <button type="button" class="map-button lightpurple-btn mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Explore Map <i class="fa-regular fa-map"></i>
-  </button>
-
-<!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Explore Map <i class="fa-regular fa-map"></i></h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <%= render "map", locals: {markers: @markers}, class:"map-size" %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+  <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Explore Map <i class="fa-regular fa-map"></i></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= render "map", locals: {markers: @markers}, class:"map-size" %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </div>
