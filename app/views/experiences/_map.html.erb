@@ -3,6 +3,6 @@
     class="map-body"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="pk.eyJ1IjoiZGVzZXJ0Zm94MTE3IiwiYSI6ImNseXpncXJ1cjIxNmcyanNobTk4ZW56bWwifQ.AOS84lXV36dmxBAzW2dMLw"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
     data-action="click->map#resize">
 </div>
