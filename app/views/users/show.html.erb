@@ -5,7 +5,7 @@
       <div class="user-details">
         <div class="about-card d-flex align-items-center flex-column">
           <% if @user.avatar.attached? %>
-            <%= image_tag current_user.avatar, class:"avatar-larger" %>
+            <%= cl_image_tag @user.avatar.key, class:"avatar-larger" %>
           <% else %>
             <%= image_tag 'https://res.cloudinary.com/djqladxhq/image/upload/v1723730530/x17umayb2am44f33ixtt.png', class:"avatar-larger" %>
           <% end %>
