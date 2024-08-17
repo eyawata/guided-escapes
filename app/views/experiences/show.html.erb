@@ -38,7 +38,7 @@
       <h3 class="h3-show">About your guide</h3>
       <div class="user-host-pill grid-item">
         <% if @experience.user.avatar.attached? %>
-          <p><%= cl_image_tag experience.user.avatar.key, class: "avatar me-2" %></p>
+          <p><%= cl_image_tag @experience.user.avatar.key, class: "avatar me-2" %></p>
         <% else %>
           <p><%= image_tag 'Defaultprofilepicture.png', class: "avatar me-2" %></p>
         <% end %>
