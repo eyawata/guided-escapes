@@ -37,7 +37,11 @@
     <div class="experience-show-user">
       <h3 class="h3-show">About your guide</h3>
       <div class="user-host-pill grid-item">
-        <%= cl_image_tag @experience.user.avatar.key, class: "user-host-show-photo" %>
+        <% if @experience.user.avatar.attached? %>
+          <p><%= cl_image_tag experience.user.avatar.key, class: "avatar me-2" %></p>
+        <% else %>
+          <p><%= image_tag 'Defaultprofilepicture.png', class: "avatar me-2" %></p>
+        <% end %>
         <div class="user-info">
           <h3><%= @experience.user.first_name %></h3>
           <p>Guide</p>
