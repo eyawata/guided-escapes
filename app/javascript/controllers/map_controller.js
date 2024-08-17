@@ -12,7 +12,7 @@ export default class extends Controller {
     console.log("Connected");
 
     mapboxgl.accessToken = "pk.eyJ1IjoiZGVzZXJ0Zm94MTE3IiwiYSI6ImNseXpncXJ1cjIxNmcyanNobTk4ZW56bWwifQ.AOS84lXV36dmxBAzW2dMLw"
-
+    // comment
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10"
