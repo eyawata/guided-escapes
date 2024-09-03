@@ -22,7 +22,11 @@
             <h5 class="card-title mt-1"><%= experience.title %></h5>
             <p class="card-text-details"><%= experience.content %></p>
             <div class="d-flex">
-              <p><%= cl_image_tag experience.user.avatar.key, class: "avatar me-2" %></p>
+              <% if experience.user.avatar.attached? %>
+                <p><%= cl_image_tag experience.user.avatar.key, class: "avatar me-2" %></p>
+              <% else %>
+                <p><%= image_tag 'Defaultprofilepicture.png', class: "avatar me-2" %></p>
+              <% end %>
               <p class="hosted-by"><%= experience.user.first_name %></p>
             </div>
             <p class="price"><%= experience.price.round %> USD</p>

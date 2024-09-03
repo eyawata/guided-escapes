@@ -27,7 +27,7 @@ user_image_url = [
   "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.1wZeqVjYf8B04zM5E-STwQHaHa%26pid%3DApi&f=1&ipt=fda9d8a05506a8bd06fc4f4dc4afc3a13e1aa8bc4d3600663bab397873288aaa&ipo=images",
   "https://i.pinimg.com/564x/a7/5d/62/a75d62adddc8397c7820df76d8d05a30.jpg",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5PjBOJHAm1xl8yejd9mAb20XetMXbioYJiQ&s",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRASpHWfCT6Qibm_JYlK6Pp_2ergXeRFCLMIA&s",
+  "https://static01.nyt.com/images/2020/04/14/us/politics/14vid-Obama/14vid-Obama-square640-v3.jpg",
 ]
 
 # Real image URLs
