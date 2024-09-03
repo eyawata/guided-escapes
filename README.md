@@ -38,8 +38,10 @@ Guided Escapes is a fully functional clone of Airbnb, built using Ruby on Rails.
 
 ## 📱Screens 
 <p align="center">
-  <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1725349055/1_ifggr1.png" alt="screens1" />
-  <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1725349065/2_xftanh.png" alt="screens2" />
+  <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1725357396/1_ovqqmw.png" alt="screens1" />
+  <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1725357395/2_jsrlwl.png" alt="screens2" />
+  <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1725357395/3_t9o5oj.png" alt="screens3" />
+  <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1725357395/4_fi6sy7.png" alt="screens4" />
 </p>
 
 ## ✏️Authors 
