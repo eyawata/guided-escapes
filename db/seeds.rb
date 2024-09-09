@@ -128,8 +128,8 @@ experiences.each do |experience|
     price: rand(2000..5000),
     duration: rand(2..10),
     user: User.all.sample,
-    latitude: 2.380061 + rand(0.01..0.06),
-    longitude: 48.8649574 + rand(0.1..0.6),
+    latitude: 35.652832 + rand(0.01..0.06),
+    longitude: 139.839478 + rand(0.1..0.6)
   )
   image_url[experience[:title]].each_with_index do |url, index|
     file = URI.open(url)
@@ -146,7 +146,7 @@ puts "Creating bookings!"
     user: User.all.sample,
     date: Date.today,
     status: rand(1..3) # needs to be at least 6 characters
-    )
+  )
 end
 
 puts "Created #{Booking.count} bookings!"
